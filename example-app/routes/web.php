@@ -55,48 +55,76 @@ Route::get("/checkout",[SiteController::class,"checkout"]);
 Route::get("/coming_soon",[SiteController::class,"coming_soon"]);
 
 
+// admin prefix 
+
+Route::group(['prefix'=>'admin'],function(){
+    Route::get("/dashboard",[DashboardController::class,"dashboard"]);
+
+    // add category 
+    Route::get("/addcategory",[AddcatController::class,"Addcategory"]);
+    Route::get("/categorylist",[CatlistController::class,"categorytlist"]);
+    // category submission 
+    Route::post('/addparentcat',[AddcatController::class,"Addparentcategory"])->name('add.parentcat');
+    Route::post('/addsubcat',[AddcatController::class,"Addsubcategory"])->name('add.subcat');
+
+
+    // add product 
+    Route::get("/addProduct",[AddProductController::class,"Addproduct"]);
+    Route::get("/productlist",[ProductlistController::class,"productlist"]);
+
+    // product submission 
+    Route::post("/addProductdata",[AddProductController::class,"Addproductdata"])->name('add.productdata');
 
 
 
-// Admin 
 
-Route::get("/dashboard",[DashboardController::class,"dashboard"]);
-// 
-Route::get("/addProduct",[AddProductController::class,"Addproduct"]);
-Route::get("/productlist",[ProductlistController::class,"productlist"]);
-// 
-Route::get("/addcategory",[AddcatController::class,"Addcategory"]);
-Route::get("/categorylist",[CatlistController::class,"categorytlist"]);
-// 
-Route::get("/addattribute",[AddattributeController::class,"Addattribute"]);
-Route::get("/attributelist",[attributelistController::class,"attributetlist"]);
-//
-Route::get("/adduser",[AdduserController::class,"Adduser"]);
-Route::get("/userlist",[UserlistController::class,"userlist"]);
-//
-Route::get("/addrole",[CreateRoleController::class,"Addrole"]);
-Route::get("/rolelist",[RolelistController::class,"rolelist"]);
-//
-Route::get("/media",[MediaController::class,"media"]);
-//
-Route::get("/orderdetail",[OrderDetailController::class,"orderdetail"]);
-Route::get("/orderlist",[OrderlistController::class,"orderlist"]);
-Route::get("/ordertracking",[OrderTrackingController::class,"ordertracking"]);
-//
-Route::get("/currency",[CurrencyRateController::class,"currency"]);
-Route::get("/translation",[TranslationController::class,"translation"]);
-//
-Route::get("/couponlist",[CouponlistController::class,"couponlist"]);
-Route::get("/createcoupon",[CreateCouponController::class,"createCoupon"]);
-//
-Route::get("/tax",[TaxController::class,"tax"]);
-//
-Route::get("/review",[ReviewController::class,"review"]);
-//
-Route::get("/support",[SupportController::class,"support"]);
-//
-Route::get("/profileSetting",[ProfileSettingController::class,"profileSetting"]);
-//
-Route::get("/report",[ReportController::class,"report"]);
-//
-Route::get("/list",[ListController::class,"list"]);
+
+
+
+
+
+
+    // 
+
+    // 
+    Route::get("/addattribute",[AddattributeController::class,"Addattribute"]);
+    Route::get("/attributelist",[attributelistController::class,"attributetlist"]);
+    //
+    Route::get("/adduser",[AdduserController::class,"Adduser"]);
+    Route::get("/userlist",[UserlistController::class,"userlist"]);
+    //
+    Route::get("/addrole",[CreateRoleController::class,"Addrole"]);
+    Route::get("/rolelist",[RolelistController::class,"rolelist"]);
+    //
+    Route::get("/media",[MediaController::class,"media"]);
+    //
+    Route::get("/orderdetail",[OrderDetailController::class,"orderdetail"]);
+    Route::get("/orderlist",[OrderlistController::class,"orderlist"]);
+    Route::get("/ordertracking",[OrderTrackingController::class,"ordertracking"]);
+    //
+    Route::get("/currency",[CurrencyRateController::class,"currency"]);
+    Route::get("/translation",[TranslationController::class,"translation"]);
+    //
+    Route::get("/couponlist",[CouponlistController::class,"couponlist"]);
+    Route::get("/createcoupon",[CreateCouponController::class,"createCoupon"]);
+    //
+    Route::get("/tax",[TaxController::class,"tax"]);
+    //
+    Route::get("/review",[ReviewController::class,"review"]);
+    //
+    Route::get("/support",[SupportController::class,"support"]);
+    //
+    Route::get("/profileSetting",[ProfileSettingController::class,"profileSetting"]);
+    //
+    Route::get("/report",[ReportController::class,"report"]);
+    //
+    Route::get("/list",[ListController::class,"list"]);
+});
+
+
+
+
+
+
+
+

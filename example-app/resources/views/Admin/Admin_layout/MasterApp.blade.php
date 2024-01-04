@@ -11,6 +11,7 @@
     <meta name="keywords"
         content="admin template, Fastkart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{asset('Admin/images/favicon.png')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('Admin/images/favicon.png')}}" type="image/x-icon">
     <title>Fixedtkart - @yield("title")</title>
@@ -50,6 +51,9 @@
 
     <!-- Slick Slider Css -->
     <link rel="stylesheet" href="{{asset('Admin/css/vendors/slick.css')}}">
+
+    <!-- toaster  -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
     <!-- App css -->
     <link rel="stylesheet" type="text/css" href="{{asset('Admin/css/style.css')}}">

@@ -34,7 +34,7 @@
                                 <li class="back-btn"></li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/dashboard')}}">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/admin/dashboard')}}">
                                         <i class="ri-home-line"></i>
                                         <span>Dashboard</span>
                                     </a>
@@ -47,11 +47,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/productlist')}}">Prodcts</a>
+                                            <a href="{{url('/admin/productlist')}}">Prodcts</a>
                                         </li>
 
                                         <li>
-                                            <a href="{{url('/addProduct')}}">Add New Products</a>
+                                            <a href="{{url('/admin/addProduct')}}">Add New Products</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -63,11 +63,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/categorylist')}}">Category List</a>
+                                            <a href="{{url('/admin/categorylist')}}">Category List</a>
                                         </li>
 
                                         <li>
-                                            <a href="{{url('/addcategory')}}">Add New Category</a>
+                                            <a href="{{url('/admin/addcategory')}}">Add New Category</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -79,11 +79,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/attributelist')}}">Attributes</a>
+                                            <a href="{{url('/admin/attributelist')}}">Attributes</a>
                                         </li>
 
                                         <li>
-                                            <a href="{{url('/addattribute')}}">Add Attributes</a>
+                                            <a href="{{url('/admin/addattribute')}}">Add Attributes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -95,10 +95,10 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/userlist')}}">All users</a>
+                                            <a href="{{url('/admin/userlist')}}">All users</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('/adduser')}}">Add new user</a>
+                                            <a href="{{url('/admin/adduser')}}">Add new user</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -110,16 +110,16 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/rolelist')}}">All roles</a>
+                                            <a href="{{url('/admin/rolelist')}}">All roles</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('/addrole')}}">Create Role</a>
+                                            <a href="{{url('/admin/addrole')}}">Create Role</a>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/media')}}">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/admin/media')}}">
                                         <i class="ri-price-tag-3-line"></i>
                                         <span>Media</span>
                                     </a>
@@ -132,13 +132,13 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/orderlist')}}">Order List</a>
+                                            <a href="{{url('/admin/orderlist')}}">Order List</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('/orderdetail')}}">Order Detail</a>
+                                            <a href="{{url('/admin/orderdetail')}}">Order Detail</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('/ordertracking')}}">Order Tracking</a>
+                                            <a href="{{url('/admin/ordertracking')}}">Order Tracking</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -150,11 +150,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/translation')}}">Translation</a>
+                                            <a href="{{url('/admin/translation')}}">Translation</a>
                                         </li>
 
                                         <li>
-                                            <a href="{{url('/currency')}}">Currency Rates</a>
+                                            <a href="{{url('/admin/currency')}}">Currency Rates</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -166,31 +166,31 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/couponlist')}}">Coupon List</a>
+                                            <a href="{{url('/admin/couponlist')}}">Coupon List</a>
                                         </li>
 
                                         <li>
-                                            <a href="{{url('/createcoupon')}}">Create Coupon</a>
+                                            <a href="{{url('/admin/createcoupon')}}">Create Coupon</a>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/tax')}}">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/admin/tax')}}">
                                         <i class="ri-price-tag-3-line"></i>
                                         <span>Tax</span>
                                     </a>
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/review')}}">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/admin/review')}}">
                                         <i class="ri-star-line"></i>
                                         <span>Product Review</span>
                                     </a>
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/support')}}">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/admin/support')}}">
                                         <i class="ri-phone-line"></i>
                                         <span>Support Ticket</span>
                                     </a>
@@ -203,20 +203,20 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{url('/profileSetting')}}">Profile Setting</a>
+                                            <a href="{{url('/admin/profileSetting')}}">Profile Setting</a>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/report')}}">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/admin/report')}}">
                                         <i class="ri-file-chart-line"></i>
                                         <span>Reports</span>
                                     </a>
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/list')}}">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{url('/admin/list')}}">
                                         <i class="ri-list-check"></i>
                                         <span>List Page</span>
                                     </a>
