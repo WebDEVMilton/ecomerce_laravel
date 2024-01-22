@@ -11,20 +11,23 @@
             <div class="row">
                 <div class="col-sm-8 m-auto">
                   
-                 <form action="{{route('add.productdata')}}"  class="theme-form theme-form-2 mega-form" method="post"  enctype="multipart/form-data" id="Addproductform">
-                    @csrf  
+                 <form action="{{route('update.product')}}"  class="theme-form theme-form-2 mega-form" method="post"  enctype="multipart/form-data" id="Updateproductform">
+                    @csrf
+                    
+                    @foreach($product as $products)
                     <div class="card">
                         <div class="card-body">
                             <div class="card-header-2">
                                 <h5>Product Information</h5>
                             </div>
+                            <input type="hidden" value="{{$products->id}}" name="id" id="id" >
 
                             <div class="theme-form theme-form-2 mega-form">
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Product
                                         Name</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="pname" id="pname"
+                                        <input class="form-control" type="text" name="pname" id="pname" value="{{$products->pname}}"
                                             placeholder="Product Name">
                                     </div>
                                 </div>
@@ -47,9 +50,9 @@
                                     <div class="col-sm-9">
                                         <select class="js-example-basic-single w-100 " name="cat_id" id="cat_id">
                                             <option disabled>Category Menu</option>
-                                            @foreach($catdata as $catdatas)
-                                            <option value="{{$catdatas->id}}">{{$catdatas->catname}}</option>
-                                            @endforeach
+                                            
+                                            <option  value="{{$products->category->id}}">{{$products->category->catname}}</option>
+                                           
 
                                         </select>
                                     </div>
@@ -62,10 +65,10 @@
                                     <div class="col-sm-9">
                                         <select class="js-example-basic-single w-100" name="subcat_id" id="subcat_id">
 
-                                            <option value=""></option>
-                                            @foreach($subcat as $subcatdatas)
-                                            <option value="{{$subcatdatas->id}}">{{$subcatdatas->subcatname}}</option>
-                                            @endforeach
+                                            <option disabled>Sub Category Menu</option>
+                                            
+                                            <option value="{{$products->subcategory->id}}">{{$products->subcategory->subcatname}}</option>
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -99,7 +102,7 @@
                                     <div class="col-sm-9">
                                         <div class="bs-example">
                                             <input type="text" class="form-control"
-                                                placeholder="Type tag & hit enter" id="tags" name="tags"
+                                                placeholder="Type tag & hit enter" id="tags" name="tags" value="{{$products->tags}}"
                                                 data-role="tagsinput">
                                         </div>
                                     </div>
@@ -109,7 +112,7 @@
                                         class="col-sm-3 col-form-label form-label-title">Exchangeable</label>
                                     <div class="col-sm-9">
                                         <label class="switch">
-                                            <input type="checkbox" value="1" name="exchange" id="exchange"><span class="switch-state"></span>
+                                            <input type="checkbox"  name="exchange" id="exchange" value="{{$products->exchange}}"><span class="switch-state"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -118,7 +121,7 @@
                                         class="col-sm-3 col-form-label form-label-title">Refundable</label>
                                     <div class="col-sm-9">
                                         <label class="switch">
-                                            <input type="checkbox" value="1"  name="refund" id="refund"><span
+                                            <input type="checkbox" value="1"  name="refund" id="refund" value="{{$products->refund}}" ><span
                                                 class="switch-state"></span>
                                         </label>
                                     </div>
@@ -160,7 +163,8 @@
                                     <label
                                         class="col-sm-3 col-form-label form-label-title">Images</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form-choose" type="file" name="pimage"
+                                        
+                                        <input class="form-control form-choose" type="file" name="pimage" value="{{$products->pimage}}"
                                              id="pimage" multiple>
                                     </div>
                                 </div>
@@ -169,7 +173,7 @@
                                     <label class="col-sm-3 col-form-label form-label-title">Thumbnail
                                         Image</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control form-choose" type="file" name="ptumbnail" id="ptumbnail"
+                                        <input class="form-control form-choose" type="file" name="ptumbnail" id="ptumbnail" value="{{$products->ptumbnail}}"
                                             multiple>
                                     </div>
                                 </div>
@@ -201,7 +205,7 @@
                                     <label class="form-label-title col-sm-3 mb-0">Video
                                         Link</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="pvideo" id="pvideo"
+                                        <input class="form-control" type="text" name="pvideo" id="pvideo" value="{{$products->pvideo}}"
                                             placeholder="Video Link">
                                     </div>
                                 </div>
@@ -258,7 +262,7 @@
                                     <label class="form-label-title col-sm-3 mb-0">Weight
                                         (kg)</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="number" name="shipweight" id="shipweight" placeholder="Weight">
+                                        <input class="form-control" type="number" name="shipweight" id="shipweight" value="{{$products->shipweight}}" placeholder="Weight">
                                     </div>
                                 </div>
 
@@ -287,7 +291,7 @@
                                 <div class="mb-4 row align-items-center">
                                     <label class="col-sm-3 form-label-title">price</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="number" name="price" id="price" placeholder="0">
+                                        <input class="form-control" type="number" name="price" id="price" value="{{$products->price}}" placeholder="0">
                                     </div>
                                 </div>
                                 <!-- <div class="mb-4 row align-items-center">
@@ -332,7 +336,8 @@
                                     <label class="col-sm-3 col-form-label form-label-title">Stock
                                         Status</label>
                                     <div class="col-sm-9">
-                                        <select class="js-example-basic-single w-100" name="stock" id="stock">
+                                        <select class="js-example-basic-single w-100" name="stock" id="stock"  value="{{$products->stock}}">
+                                            
                                             <option value="In Stock">In Stock</option>
                                             <option value="Out Of Stock">Out Of Stock</option>
                                             <option value="On Backorder">On Backorder</option>
@@ -342,7 +347,7 @@
                                 <div class="mb-4 row align-items-center">
                                     <label class="col-sm-3 col-form-label form-label-title">Quantity</label>
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" name="quantity" id="quantity">
+                                        <input type="number" class="form-control" name="quantity" id="quantity" value="{{$products->quantity}}">
                                     </div>
                                 </div>
                             </div>
@@ -443,7 +448,7 @@
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Page title</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="search" name="pagetitle" id="pagetitle"
+                                        <input class="form-control" type="search" name="pagetitle" id="pagetitle"  value="{{$products->pagetitle}}"
                                             placeholder="Fresh Fruits">
                                     </div>
                                 </div>
@@ -452,14 +457,14 @@
                                     <label class="form-label-title col-sm-3 mb-0">Meta
                                         description</label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control" rows="3" name="metadesc" id="metadesc"></textarea>
+                                        <textarea class="form-control" rows="3" name="metadesc" id="metadesc" >{{$products->metadesc}}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <label class="form-label-title col-sm-3 mb-0">URL handle</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="search" name="meta_url" id="meta_url"
+                                        <input class="form-control" type="search" name="meta_url" id="meta_url" value="{{$products->meta_url}}"
                                             placeholder="https://fastkart.com/fresh-veggies">
                                     </div>
                                 </div>
@@ -470,6 +475,8 @@
                     </div>
                  
                 </div>
+
+                @endforeach
                 </form>
             </div>
         </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\category\CatlistController;
 use App\Http\Controllers\Admin\dashboard\DashboardController;
 use App\Http\Controllers\Admin\product\AddProductController;
 use App\Http\Controllers\Admin\product\ProductlistController;
+use App\Http\Controllers\Admin\product\EditProductController;
 use App\Http\Controllers\Admin\attribute\AddattributeController;
 use App\Http\Controllers\Admin\attribute\attributelistController;
 use App\Http\Controllers\Admin\user\AdduserController;
@@ -70,13 +71,19 @@ Route::group(['prefix'=>'admin'],function(){
 
     // add product 
     Route::get("/addProduct",[AddProductController::class,"Addproduct"]);
+    // Route::get("/updateProduct",[AddProductController::class,"getsubcategory"])->name('get.subcategory');
     Route::get("/productlist",[ProductlistController::class,"productlist"]);
-
     // product submission 
     Route::post("/addProductdata",[AddProductController::class,"Addproductdata"])->name('add.productdata');
 
+    // update product 
 
+    Route::get("/editproduct/{id}",[EditProductController::class,"editproduct"])->name('edit.product');
 
+    Route::post("/updateproduct",[EditProductController::class,"updateproduct"])->name('update.product');
+
+    // delete product 
+    Route::delete("/deleteProduct/{id}",[ProductlistController::class,"deleteProduct"]);
 
 
 

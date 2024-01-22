@@ -10,14 +10,23 @@ use App\Models\admin\Addproduct;
 
 class AddProductController extends Controller
 {
-    function Addproduct(){
+    public function Addproduct(){
         $catdata=Addcategory::all();
-        $subcatdata=Addsubcatgeory::all();
+        $subcat=Addsubcatgeory::all();
+        // $subcat=Addsubcatgeory
 
-        return view("Admin.product.addProduct",['catdata'=>$catdata,'subcatdata'=>$subcatdata]);
+
+        return view("Admin.product.addProduct",['catdata'=>$catdata,'subcat'=>$subcat]);
     }
 
-    function Addproductdata(Request $request){
+    // public function getsubcategory(Request $request){
+
+    //     $getsubcat=Addsubcatgeory::with('product')->where('addcat_id',$request->cat_id)->get();
+    //     return view("Admin.product.addProduct",['getsubcat'=>$getsubcat]);
+    // }
+    
+
+    public function Addproductdata(Request $request){
         $request->validate([
             'pname'=>'required',
             'cat_id'=>'required',
@@ -75,11 +84,12 @@ class AddProductController extends Controller
         $product->metadesc=$request->metadesc;
         $product->meta_url=$request->meta_url;
         $product->save();
-
+        return response()->json([
+            'status'=>'success'
+        ]);
         
         
     }
-
 
 
 }
