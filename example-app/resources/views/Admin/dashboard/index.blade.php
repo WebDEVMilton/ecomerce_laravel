@@ -96,7 +96,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/vegetable.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/vegetable.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Vegetables & Fruit</h6>
@@ -107,7 +107,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/cup.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/cup.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Beverages</h6>
@@ -118,7 +118,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/meats.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/meats.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Meats & Seafood</h6>
@@ -129,7 +129,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/breakfast.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/breakfast.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Breakfast</h6>
@@ -140,7 +140,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/frozen.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/frozen.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Frozen Foods</h6>
@@ -151,7 +151,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/milk.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/milk.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Milk & Dairies</h6>
@@ -162,7 +162,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/pet.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/pet.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Pet Food</h6>
@@ -173,7 +173,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/vegetable.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/vegetable.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Vegetables & Fruit</h6>
@@ -184,7 +184,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/cup.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/cup.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Beverages</h6>
@@ -195,7 +195,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/meats.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/meats.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Meats & Seafood</h6>
@@ -206,7 +206,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/breakfast.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/breakfast.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Breakfast</h6>
@@ -217,7 +217,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/frozen.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/frozen.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Frozen Foods</h6>
@@ -228,7 +228,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/milk.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/milk.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Milk & Dairies</h6>
@@ -239,7 +239,7 @@
                                         <div>
                                             <div class="dashboard-category">
                                                 <a href="javascript:void(0)" class="category-image">
-                                                    <img src="assets/svg/pet.svg" class="img-fluid" alt="">
+                                                    <img src="{{asset('Admin/svg/pet.svg')}}" class="img-fluid" alt="">
                                                 </a>
                                                 <a href="javascript:void(0)" class="category-name">
                                                     <h6>Pet Food</h6>
@@ -303,7 +303,7 @@
                                                         <td>
                                                             <div class="best-product-box">
                                                                 <div class="product-image">
-                                                                    <img src="assets/images/product/1.png"
+                                                                    <img src="{{asset('Admin/images/product/1.png')}}"
                                                                         class="img-fluid" alt="Product">
                                                                 </div>
                                                                 <div class="product-name">
@@ -346,7 +346,7 @@
                                                         <td>
                                                             <div class="best-product-box">
                                                                 <div class="product-image">
-                                                                    <img src="assets/images/product/2.png"
+                                                                    <img src="{{asset('Admin/images/product/2.png')}}"
                                                                         class="img-fluid" alt="Product">
                                                                 </div>
                                                                 <div class="product-name">
@@ -389,7 +389,7 @@
                                                         <td>
                                                             <div class="best-product-box">
                                                                 <div class="product-image">
-                                                                    <img src="assets/images/product/3.png"
+                                                                    <img src="{{asset('Admin/images/product/3.png')}}"
                                                                         class="img-fluid" alt="Product">
                                                                 </div>
                                                                 <div class="product-name">

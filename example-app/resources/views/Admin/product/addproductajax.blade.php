@@ -219,26 +219,30 @@
         // delete product 
 
 
-        $(document).on('click','.delete_product',function(event){
-                event.preventDefault();
-                var productURL = $(this).data('url');
-                //var trObj = $(this);
+        // $(document).on('click','.deleteproduct',function(event){
+        //         event.preventDefault();
+        //         // id=$('#id').val();
+        //         //var trObj = $(this);
 
-                  if(confirm("Are you sure you want to remove this user?") == true){
-                    $.ajax({
-                     url: productURL,
-                     type: 'DELETE',
-                     dataType: 'json',
+        //         alert(productURL);
+
+        //           if(confirm("Are you sure you want to remove this user?") == true){
+        //             $.ajax({
+        //              url: "{{url('delete.product')}}/"+id,
+        //              type: 'DELETE',
+        //              data:{
+        //                 id=id;
+        //              },
                     
-                    success:function(response){ 
+        //             success:function(response){ 
                        
                             
 
-                    }
-                    });
-                 }
+        //             }
+        //             });
+        //          }
   
-              });
+        //       });
 
 
 

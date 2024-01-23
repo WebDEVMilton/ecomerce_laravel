@@ -71,7 +71,7 @@
                                                                         <i class="ri-eye-line"></i>
                                                                     </a>
                                                                 </li>
-
+                                                            
                                                                 <li>
                                                                     <a href="{{url('/admin/editproduct',$products->id)}}"
 
@@ -79,10 +79,11 @@
                                                                         <i class="ri-pencil-line"></i>
                                                                     </a>
                                                                 </li>
-
+                                                                
                                                                 <li>
                                                                     <a  href="{{url('/admin/deleteProduct',$products->id)}}"
                                                                     
+                                                                    id="deleteproduct"
                                                                     >
                                                                         <i class="ri-delete-bin-line"></i>
                                                                     </a>

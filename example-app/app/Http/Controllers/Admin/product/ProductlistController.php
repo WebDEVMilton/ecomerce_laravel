@@ -29,9 +29,7 @@ class ProductlistController extends Controller
 
     public function deleteProduct($id){
         Addproduct::find($id)->delete();
-        return response()->json([
-            'success'=>'product Deleted Successfully!'
-        ]);
+        return redirect()->back();
 
 
     }
