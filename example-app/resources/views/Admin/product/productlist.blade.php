@@ -19,7 +19,7 @@
                                                     <a href="javascript:void(0)">Export</a>
                                                 </li>
                                                 <li>
-                                                    <a class="btn btn-solid" href="add-new-product.html">Add Product</a>
+                                                    <a class="btn btn-solid" href="{{url('admin/addProduct')}}">Add Product</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -81,9 +81,9 @@
                                                                 </li>
                                                                 
                                                                 <li>
-                                                                    <a  href="{{url('/admin/deleteProduct',$products->id)}}"
-                                                                    
-                                                                    id="deleteproduct"
+                                                                    <a  href="javascript:void(0)"
+                                                                        data-url="{{route('delete.product',$products->id)}}"
+                                                                        class="deleteproduct"
                                                                     >
                                                                         <i class="ri-delete-bin-line"></i>
                                                                     </a>
@@ -98,21 +98,13 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
+                    @include('Admin.product.addproductajax')
                 </div>
                 <!-- Container-fluid Ends-->
-
-                <div class="container-fluid">
-                    <!-- footer start-->
-                    <footer class="footer">
-                        <div class="row">
-                            <div class="col-md-12 footer-copyright text-center">
-                                <p class="mb-0">Copyright 2022 © Fastkart theme by pixelstrap</p>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
             </div>
 @endsection

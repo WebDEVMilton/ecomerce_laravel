@@ -81,12 +81,19 @@
                     contentType: false,
                     processData: false,
 
-                    success: function(response) => {
+                    success: function(response){
+
+                        if(response.status="success"){
+
+                        }
                 
                     },
-                    error: function(response){
-                    console.log(response);
+                    error: function(error){
+                            $("#ErroMsg").find("ul").html('');
+                            $.each(error.responseJSON.errors, function(key, value )) {
+                            $('#ErroMsg').find("ul").append('<li class="text-danger" >'+value+'</li>');
                     }
+                }
 
                 })
             });
@@ -201,7 +208,7 @@
                     contentType: false,
                     processData: false,
 
-                    success: function(response) => {
+                    success: function(response){
                 
                     },
                     error: function(response){
@@ -219,30 +226,70 @@
         // delete product 
 
 
-        // $(document).on('click','.deleteproduct',function(event){
-        //         event.preventDefault();
-        //         // id=$('#id').val();
-        //         //var trObj = $(this);
+        // function deleteproduct(id){
 
-        //         alert(productURL);
-
-        //           if(confirm("Are you sure you want to remove this user?") == true){
+        //         if(confirm("Are you sure to Delete")){
         //             $.ajax({
-        //              url: "{{url('delete.product')}}/"+id,
-        //              type: 'DELETE',
-        //              data:{
-        //                 id=id;
-        //              },
-                    
-        //             success:function(response){ 
-                       
-                            
+        //                 url:'admin/delete_Product/'+id,
+        //                 type:'DELETE',
+        //                 dataType: 'json',
+                        
+        //                 success:function(response){
 
-        //             }
-        //             });
-        //          }
-  
-        //       });
+        //                 },
+        //                 error:function(response){
+
+        //                 }
+
+
+
+
+
+
+
+
+        //             })
+
+
+
+
+
+
+        //         }
+
+
+
+
+        // }
+
+
+        $(document).on("click",".deleteproduct",function(event){
+            event.preventDefault();
+            var producturl=$(this).data(url);
+            if(confirm('Are you sure to delete')){
+                $.ajax({
+                    url:producturl,
+                    type:'DELETE',
+                    dataType:'json',
+                    success:function(){
+
+                    },
+                    error:function(){
+
+                    }
+
+
+                })
+
+
+
+
+            }
+
+
+
+
+        })
 
 
 

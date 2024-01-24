@@ -83,7 +83,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post("/updateproduct",[EditProductController::class,"updateproduct"])->name('update.product');
 
     // delete product 
-    Route::get("/deleteProduct/{id}",[ProductlistController::class,"deleteProduct"]);
+    Route::delete("/delete_Product/{id}",[ProductlistController::class,"deleteProduct"])->name('delete.product');
 
 
 
