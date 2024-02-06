@@ -479,10 +479,13 @@
 
 </div>
 
-    @include('Admin.product.addproductajax')
-
+    
+@include('Admin.product.addproductajax')
 <!-- Container-fluid End -->
+
+{!! Toastr::message() !!}
 </div>
 <!-- Page Body End -->
+
 
 @endsection

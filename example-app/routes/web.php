@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Public\SiteController;
+use App\Http\Controllers\User\SiteController;
 
 // admin 
 use App\Http\Controllers\Admin\category\AddcatController;
@@ -67,8 +67,9 @@ Route::group(['prefix'=>'admin'],function(){
     // category submission 
     Route::post('/addparentcat',[AddcatController::class,"Addparentcategory"])->name('add.parentcat');
     Route::post('/addsubcat',[AddcatController::class,"Addsubcategory"])->name('add.subcat');
-
-
+    // delete category  
+    // Route::delete('/deletecategory/{id}',[CatlistController::class,"deletecategory"])->name('delete.cat');
+    Route::post('/delete-cat', [CatlistController::class, 'deletecategory'])->name('delete.cat');
     // add product 
     Route::get("/addProduct",[AddProductController::class,"Addproduct"]);
     // Route::get("/updateProduct",[AddProductController::class,"getsubcategory"])->name('get.subcategory');
@@ -83,15 +84,19 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post("/updateproduct",[EditProductController::class,"updateproduct"])->name('update.product');
 
     // delete product 
-    Route::delete("/delete_Product/{id}",[ProductlistController::class,"deleteProduct"])->name('delete.product');
+    // Route::post("delete_Product",[ProductlistController::class,"deleteProduct"])->name('delete.product');
+    // delte 
+    Route::delete('delete_Product/{id}', [ProductlistController::class, 'deleteProduct'])->name('delete.product');
 
+    // delete product 
+    // Route::get("/delete_Product/{id}",[ProductlistController::class,"deleteProduct"])->name('delete.product');
+    
 
+    // search product 
+    Route::get('/search-product', [ProductlistController::class, 'searchProduct'])->name('search.product');
+    // get paginate for search 
+    Route::get('/pagination', [ProductlistController::class, 'paginateProduct']);
 
-
-
-
-
-    // 
 
     // 
     Route::get("/addattribute",[AddattributeController::class,"Addattribute"]);

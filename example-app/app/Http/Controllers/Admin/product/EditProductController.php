@@ -14,9 +14,10 @@ class EditProductController extends Controller
 
         $product=Addproduct::with('subcategory')->where('id',$id)->get();
 
+        // $getsubcategory
+
         return view("Admin.product.editProduct",['product'=>$product]);
     }
-
 
     public function updateproduct(Request $request){
 

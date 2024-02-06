@@ -8,7 +8,7 @@
                 }
             });
     </script>
-
+  
     <script>
         $(document).ready(function(){
             $(document).on('click','.add_subcategory',function(event){

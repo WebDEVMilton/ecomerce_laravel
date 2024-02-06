@@ -10,9 +10,8 @@
     </script>
 
     <!-- depending subcategory dropdown  -->
-
-
-
+    
+    
 
 
 
@@ -25,12 +24,7 @@
             $(document).on('submit','#Addproductform',function(event){
                 event.preventDefault();
                 let pname=$('#pname').val();
-                // let cat_id=$('#cat_id').val();
-                // let subcat_id=$('#subcat_id').val();
-                // let tags=$('#tags').val();
-                // let exchange=$('#exchange').val();
-                // let refund=$('#refund').val();
-
+                
                alert(pname);
                 
                 let formData = new FormData(this);
@@ -52,28 +46,6 @@
                 formData.append('metadesc',metadesc);
                 formData.append('meta_url',meta_url);
                 $.ajax({
-                    xhr: function () {
-                        var xhr = new window.XMLHttpRequest();
-                        xhr.upload.addEventListener("progress", function (evt) {
-                            if (evt.lengthComputable) {
-                                var percentComplete = evt.loaded / evt.total;
-                                percentComplete = parseInt(percentComplete * 100);
-                                console.log(percentComplete);
-                                $('.progress-bar').css('width', percentComplete + '%');
-                                if (percentComplete === 100) {
-                                    console.log('completed 100%')
-
-                                    var imageUrl = window.URL.createObjectURL(pimage)
-                                    $('.imgPreview').attr('src', imageUrl);
-                                    setTimeout(function () {
-                                        $('.progress-bar').css('width', '0%');
-                                    }, 2000)
-                                }
-                            }
-                        }, false);
-                        return xhr;
-                    },
-
                     url:"{{route('add.productdata')}}",
                     method:'post',
                     data: formData,
@@ -89,61 +61,14 @@
                 
                     },
                     error: function(error){
-                            $("#ErroMsg").find("ul").html('');
-                            $.each(error.responseJSON.errors, function(key, value )) {
-                            $('#ErroMsg').find("ul").append('<li class="text-danger" >'+value+'</li>');
+                            // $("#ErroMsg").find("ul").html('');
+                            // $.each(error.responseJSON.errors, function(key, value )) {
+                            // $('#ErroMsg').find("ul").append('<li class="text-danger" >'+value+'</li>');
                     }
-                }
+                });
 
                 })
             });
-
-
-
-
-
-
-        // update data 
-
-        // $(document).on('click','.updateproduct_Select',function(event){
-
-        //         let id= $(this).data('id');
-        //         let pname= $(this).data('pname');
-        //         let cat_id= $(this).data('cat_id');
-        //         let subcat_id = $(this).data('subcat_id');
-        //         let tags = $(this).data('tags');
-        //         let exchange= $(this).data('exchange');
-        //         let refund = $(this).data('refund');
-        //         let pimage = $(this).data('pimage');
-        //         let ptumbnail = $(this).data('ptumbnail');
-        //         let pvideo = $(this).data('pvideo');
-        //         let shipweight = $(this).data('shipweight');
-        //         let price= $(this).data('price');
-        //         let stock= $(this).data('stock');
-        //         let quantity = $(this).data('quantity');
-        //         let pagetitle = $(this).data('pagetitle');
-        //         let metadesc = $(this).data('metadesc');
-        //         let meta_url = $(this).data('meta_url');
-
-        //         $('#up_id').val(id)
-        //         $('#up_pname').val(pname)
-        //         $('#up_cat_id').val(cat_id)
-        //         $('#up_subcat_id').val(subcat_id)
-        //         $('#up_tags').val(tags)
-        //         $('#up_exchange').val(exchange)
-        //         $('#up_refund').val(refund)
-        //         $('#up_pimage').val(pimage)
-        //         $('#up_ptumbnail').val(ptumbnail)
-        //         $('#up_pvideo').val(pvideo)
-        //         $('#up_shipweight').val(shipweight)
-        //         $('#up_price').val(price)
-        //         $('#up_stock').val(stock)
-        //         $('#up_quantity').val(quantity)
-        //         $('#up_pagetitle').val(pagetitle)
-        //         $('#up_metadesc').val(metadesc)
-        //         $('#up_meta_url').val(meta_url)
-
-        // });
 
 
 
@@ -152,12 +77,7 @@
             $(document).on('submit','#Updateproductform',function(event){
                 event.preventDefault();
                 let pname=$('#pname').val();
-                // let cat_id=$('#cat_id').val();
-                // let subcat_id=$('#subcat_id').val();
-                // let tags=$('#tags').val();
-                // let exchange=$('#exchange').val();
-                // let refund=$('#refund').val();
-
+                
                alert(pname);
                 
                 let formData = new FormData(this);
@@ -179,28 +99,6 @@
                 formData.append('metadesc',metadesc);
                 formData.append('meta_url',meta_url);
                 $.ajax({
-                    xhr: function () {
-                        var xhr = new window.XMLHttpRequest();
-                        xhr.upload.addEventListener("progress", function (evt) {
-                            if (evt.lengthComputable) {
-                                var percentComplete = evt.loaded / evt.total;
-                                percentComplete = parseInt(percentComplete * 100);
-                                console.log(percentComplete);
-                                $('.progress-bar').css('width', percentComplete + '%');
-                                if (percentComplete === 100) {
-                                    console.log('completed 100%')
-
-                                    var imageUrl = window.URL.createObjectURL(pimage)
-                                    $('.imgPreview').attr('src', imageUrl);
-                                    setTimeout(function () {
-                                        $('.progress-bar').css('width', '0%');
-                                    }, 2000)
-                                }
-                            }
-                        }, false);
-                        return xhr;
-                    },
-
                     url:"{{route('update.product')}}",
                     method:'post',
                     data: formData,
@@ -208,7 +106,7 @@
                     contentType: false,
                     processData: false,
 
-                    success: function(response){
+                    success: function(response) {
                 
                     },
                     error: function(response){
@@ -218,89 +116,53 @@
                 })
             });
 
-        })
 
+    // delete product  
+        $(document).on('click', '.delete-product', function() {
 
+            var userURL = $(this).data('url');
+            var trObj = $(this);
 
-
-        // delete product 
-
-
-        // function deleteproduct(id){
-
-        //         if(confirm("Are you sure to Delete")){
-        //             $.ajax({
-        //                 url:'admin/delete_Product/'+id,
-        //                 type:'DELETE',
-        //                 dataType: 'json',
-                        
-        //                 success:function(response){
-
-        //                 },
-        //                 error:function(response){
-
-        //                 }
-
-
-
-
-
-
-
-
-        //             })
-
-
-
-
-
-
-        //         }
-
-
-
-
-        // }
-
-
-        $(document).on("click",".deleteproduct",function(event){
-            event.preventDefault();
-            var producturl=$(this).data(url);
-            if(confirm('Are you sure to delete')){
+            if (confirm("Are you sure you want to delete this user?") == true) {
                 $.ajax({
-                    url:producturl,
-                    type:'DELETE',
-                    dataType:'json',
-                    success:function(){
-
+                    url: userURL,
+                    type: 'DELETE',
+                    dataType: 'json',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    error:function(){
-
+                    success: function(response) {
+                        //alert(data.success);
+                        trObj.parents("tr").remove();
                     }
-
-
-                })
-
-
-
-
+                });
             }
 
+            });
 
 
+        // search 
+        $(document).on('keyup', function(e){
+            e.preventDefault();
 
-        })
+            let search_string = $('#search').val();
 
+            console.log(search_string);
 
+            $.ajax({
+                url: "{{ route('search.product') }}",
+                method: "GET",
+                data: {
+                    search_string: search_string
+                },
+                success: function(res){
+                    console.log(res)
+                    $('.table-data').html(res);
+                    if(res.status == 'nothing_found'){
+                        $('.table-data').html('<span class="text-danger">Nothing Found</span>')
+                    }
+                }
+            })
+        });
 
-
-
-
-
-
-
-
-
-
-
-    </script>
+</script>

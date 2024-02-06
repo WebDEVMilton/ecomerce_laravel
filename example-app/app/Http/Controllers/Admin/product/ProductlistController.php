@@ -12,7 +12,7 @@ class ProductlistController extends Controller
 {
     function productlist(){
 
-        $product=Addproduct::with('subcategory')->get();
+        $product = Addproduct::with('subcategory')->latest()->paginate(3);
         // $productcat=Addproduct::with('category')->get();
 
         // $productcategory=Addproduct::with('category')->get();
@@ -20,18 +20,53 @@ class ProductlistController extends Controller
 
         // $category=Addcategory::with('subcategory','product')->get();
         // $category=Addcategory::with('subcategory')->get();
-
+        // $product = Addproduct::latest()->paginate(3); 
     
-        return view("Admin.product.productlist",['product'=>$product]);
+        return view("Admin.product.productlist",['product'=>$product])->render();
     }
 
 
 
-    public function deleteProduct($id){
+    // public function deleteProduct(Request $request){
+    //     Addproduct::find($request->$id)->delete();
+    //     // return redirect()->back();
+
+
+    // }
+
+
+    public function deleteProduct($id)
+    {
         Addproduct::find($id)->delete();
-        return response()->json(["success"=>true]);
+
+         return response()->json(['success' => 'User Deleted Successfully!']);
+    }
 
 
+    function paginateProduct(){
+        $product = Addproduct::with('subcategory')->latest()->paginate(3);
+
+        return view("Admin.product.paginationProduct",['product'=>$product])->render();
+    }
+
+
+
+
+   //search product
+
+    public function searchProduct(Request $request){
+        $product = Addproduct::where('pname', 'like', '%'.$request->search_string.'%')
+        ->orWhere('price', 'like', '%'.$request->search_string.'%')
+        ->orderBy('id', 'desc')
+        ->paginate(3);
+
+        if($product->count() >=1){
+            return view('Admin.product.paginationProduct', ['product'=>$product])->render();
+        }else{
+            return response()->json([
+                'status'=>'nothing_found',
+            ]);
+        }
     }
 
 

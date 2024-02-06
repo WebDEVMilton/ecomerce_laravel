@@ -127,6 +127,10 @@
     <script src="{{asset('Admin/js/chart/apex-chart/stock-prices.js')}}"></script>
     <script src="{{asset('Admin/js/chart/apex-chart/chart-custom1.js')}}"></script>
 
+    <!-- toster js  -->
+    <!-- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script> -->
+
 
     <!-- slick slider js -->
     <script src="{{asset('Admin/js/slick.min.js')}}"></script>
@@ -143,6 +147,7 @@
 
     <!-- Theme js -->
     <script src="{{asset('Admin/js/script.js')}}"></script>
+
 </body>
 
 

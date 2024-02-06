@@ -45,7 +45,7 @@ class AddProductController extends Controller
             'metadesc'=>'required',
             'meta_url'=>'required',
 
-            'pimage.*' => 'mimes:jpg,png,jpeg,gif,svg'
+            'pimage' => 'mimes:jpg,png,jpeg,gif,svg'
         ]);
         if($request->TotalImages > 0)
         {
@@ -86,9 +86,7 @@ class AddProductController extends Controller
         $product->save();
         return response()->json([
             'status'=>'success'
-        ]);
-        
-        
+        ]);    
     }
 
 

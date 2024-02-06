@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Addproduct extends Model
 {
     use HasFactory;
+    protected $fillable = ['pimage'];
+
 
     public function subcategory(){
         return $this->belongsTo(Addsubcatgeory::class,'subcat_id');

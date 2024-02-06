@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Public;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -40,6 +40,4 @@ class SiteController extends Controller
     function coming_soon(){
         return view("user.coming_soon");
     }
-
-
 }
