@@ -10,20 +10,21 @@ use App\Models\admin\Addproduct;
 
 class AddProductController extends Controller
 {
-    public function Addproduct(){
+    public function Addproduct(Request $request){
         $catdata=Addcategory::all();
-        $subcat=Addsubcatgeory::all();
+        $subcat=Addsubcatgeory::where('addcat_id', $request->cat_id)->get();
         // $subcat=Addsubcatgeory
 
 
         return view("Admin.product.addProduct",['catdata'=>$catdata,'subcat'=>$subcat]);
     }
 
-    // public function getsubcategory(Request $request){
+    public function getsubcategory(Request $request){
 
-    //     $getsubcat=Addsubcatgeory::with('product')->where('addcat_id',$request->cat_id)->get();
-    //     return view("Admin.product.addProduct",['getsubcat'=>$getsubcat]);
-    // }
+        // $getsubcat = Addsubcatgeory::where('addcat_id', $request->cat_id)->get();
+        $getsubcat['subcategorys'] =Addsubcatgeory::where('addcat_id',$request->cat_id)->get(['subcatname','id']);
+        return response()->json($getsubcat);
+    }
     
 
     public function Addproductdata(Request $request){

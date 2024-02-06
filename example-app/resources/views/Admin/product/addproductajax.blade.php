@@ -9,9 +9,9 @@
             });
     </script>
 
-    <!-- depending subcategory dropdown  -->
     
     
+
 
 
 
@@ -20,6 +20,50 @@
 
     <script>
         $(document).ready(function(){
+
+            //  depending subcategory dropdown  
+            $(document).on('change','#cat_id',function(event){
+                event.preventDefault();
+                let cat_id=$('#cat_id').val();
+                alert(cat_id);
+
+                $.ajax({
+                    url:"{{ route('get.subcat') }}",
+                    type:'post',
+                    data:{
+                        cat_id:cat_id,
+                    },
+                    headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+
+                    success:function(response){
+                        // $('#subcat_id').append('<option value="'+value.id+'">'+value.name'+'</option>');
+                        
+                    },
+                    success:function(response){
+                        $('#subcat_id').html('<option value="">Select State</option>');
+                        $.each(response.subcategorys,function(index, val){
+                        $('#subcat_id').append('<option value="'+val.id+'"> '+val.subcatname+' </option>')
+                        });
+                    }
+                })
+
+
+
+
+            })
+
+
+
+
+
+
+
+
+
+
+            // insert product 
             
             $(document).on('submit','#Addproductform',function(event){
                 event.preventDefault();

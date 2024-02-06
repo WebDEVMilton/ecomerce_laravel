@@ -45,7 +45,7 @@
                                     <label
                                         class="col-sm-3 col-form-label form-label-title">Category</label>
                                     <div class="col-sm-9">
-                                        <select class="js-example-basic-single w-100 " name="cat_id" id="cat_id">
+                                        <select  class="js-example-basic-single w-100 " name="cat_id" id="cat_id">
                                             <option disabled>Category Menu</option>
                                             @foreach($catdata as $catdatas)
                                             <option value="{{$catdatas->id}}">{{$catdatas->catname}}</option>
@@ -62,11 +62,11 @@
                                     <div class="col-sm-9">
                                         <select class="js-example-basic-single w-100" name="subcat_id" id="subcat_id">
 
+                                            <option disabled>Category Menu</option>
                                             <option value=""></option>
-                                            @foreach($subcat as $subcatdatas)
-                                            <option value="{{$subcatdatas->id}}">{{$subcatdatas->subcatname}}</option>
-                                            @endforeach
+                                            
                                         </select>
+                                        <p></p>
                                     </div>
                                 </div>
 

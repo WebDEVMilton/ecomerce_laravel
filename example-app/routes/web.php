@@ -72,6 +72,10 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post('/delete-cat', [CatlistController::class, 'deletecategory'])->name('delete.cat');
     // add product 
     Route::get("/addProduct",[AddProductController::class,"Addproduct"]);
+
+    // for get subcategory 
+    Route::post("/getsubcat",[AddProductController::class,"getsubcategory"])->name('get.subcat');
+
     // Route::get("/updateProduct",[AddProductController::class,"getsubcategory"])->name('get.subcategory');
     Route::get("/productlist",[ProductlistController::class,"productlist"]);
     // product submission 
