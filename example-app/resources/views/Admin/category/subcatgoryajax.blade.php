@@ -25,7 +25,6 @@
                         addcat_id=addcat_id;
                         subcatname=subcatname;
                     },
-
                     success:function(response){
                         if(response.status="success")
 

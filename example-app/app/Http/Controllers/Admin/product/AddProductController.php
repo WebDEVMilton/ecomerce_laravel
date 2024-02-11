@@ -20,8 +20,6 @@ class AddProductController extends Controller
     }
 
     public function getsubcategory(Request $request){
-
-        // $getsubcat = Addsubcatgeory::where('addcat_id', $request->cat_id)->get();
         $getsubcat['subcategorys'] =Addsubcatgeory::where('addcat_id',$request->cat_id)->get(['subcatname','id']);
         return response()->json($getsubcat);
     }

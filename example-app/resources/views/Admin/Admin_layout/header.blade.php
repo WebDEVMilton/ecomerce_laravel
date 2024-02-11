@@ -119,8 +119,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        href="javascript:void(0)">
+                                    <a
+                                        href="{{route('admin.logout')}}">
                                         <i data-feather="log-out"></i>
                                         <span>Log out</span>
                                     </a>

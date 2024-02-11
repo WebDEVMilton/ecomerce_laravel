@@ -29,7 +29,14 @@
 
                                             <div class="tab-content" id="pills-tabContent">
                                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
-                                                    <form class="theme-form theme-form-2 mega-form">
+
+
+
+
+
+                                                <!-- work here  -->
+                                                    <form class="theme-form theme-form-2 mega-form" action="{{route('reg.submit')}}" method="post">
+                                                    @csrf  
                                                         <div class="card-header-1">
                                                             <h5>Product Information</h5>
                                                         </div>
@@ -40,7 +47,7 @@
                                                                     class="form-label-title col-lg-2 col-md-3 mb-0">First
                                                                     Name</label>
                                                                 <div class="col-md-9 col-lg-10">
-                                                                    <input class="form-control" type="text">
+                                                                    <input class="form-control" type="text" name="name" id="name">
                                                                 </div>
                                                             </div>
 
@@ -49,7 +56,7 @@
                                                                     class="col-lg-2 col-md-3 col-form-label form-label-title">Email
                                                                     Address</label>
                                                                 <div class="col-md-9 col-lg-10">
-                                                                    <input class="form-control" type="email">
+                                                                    <input class="form-control" type="email" name="email" id="email">
                                                                 </div>
                                                             </div>
 
@@ -57,7 +64,7 @@
                                                                 <label
                                                                     class="col-lg-2 col-md-3 col-form-label form-label-title">Password</label>
                                                                 <div class="col-md-9 col-lg-10">
-                                                                    <input class="form-control" type="password">
+                                                                    <input class="form-control" type="password" name="password" id="password">
                                                                 </div>
                                                             </div>
 
@@ -66,11 +73,33 @@
                                                                     class="col-lg-2 col-md-3 col-form-label form-label-title">Confirm
                                                                     Password</label>
                                                                 <div class="col-md-9 col-lg-10">
-                                                                    <input class="form-control" type="password">
+                                                                    <input class="form-control" type="password" name="password_confirmation">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row align-items-center mt-2 mb-4">
+                                                                <label
+                                                                    class="col-lg-2 col-md-3 col-form-label form-label-title">
+                                                                    User Type</label>
+                                                                <div class="col-md-9 col-lg-10">
+                                                                    <select name="usertype" id="usertype">
+                                                                        <option value="admin">Admin</option>
+                                                                        <option value="editor">Editor</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <button type="submit" class="btn btn-primary adminregSubmit">Submit</button>
                                                     </form>
+
+
+                                                <!-- end here  -->
+
+
+
+
+
+
+
                                                 </div>
 
                                                 <div class="tab-pane fade" id="pills-profile" role="tabpanel">
@@ -239,7 +268,9 @@
                             </div>
                         </div>
                     </div>
+                    @include('Admin.users.userAjax')
                 </div>
+                
                 <!-- New User End -->
             </div>
 @endsection

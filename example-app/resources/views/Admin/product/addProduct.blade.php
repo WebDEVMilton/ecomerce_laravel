@@ -62,8 +62,8 @@
                                     <div class="col-sm-9">
                                         <select class="js-example-basic-single w-100" name="subcat_id" id="subcat_id">
 
-                                            <option disabled>Category Menu</option>
-                                            <option value=""></option>
+                                            <option disabled>Select Category</option>
+                                            
                                             
                                         </select>
                                         <p></p>

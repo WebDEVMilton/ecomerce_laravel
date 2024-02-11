@@ -30,6 +30,8 @@ use App\Http\Controllers\Admin\support\SupportController;
 use App\Http\Controllers\Admin\profile_setting\ProfileSettingController;
 use App\Http\Controllers\Admin\report\ReportController;
 use App\Http\Controllers\Admin\list\ListController;
+use App\Http\Controllers\Admin\Auth\RegistrationController;
+use App\Http\Controllers\Admin\Auth\LoginController;
 
 
 
@@ -56,9 +58,18 @@ Route::get("/checkout",[SiteController::class,"checkout"]);
 Route::get("/coming_soon",[SiteController::class,"coming_soon"]);
 
 
-// admin prefix 
+// admin pannel login
+Route::get('/login',[LoginController::class,'loginpage']);
+Route::post('/loginsubmit',[LoginController::class,'login'])->name('admin.login');
 
-Route::group(['prefix'=>'admin'],function(){
+
+Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
+
+    // admin user registration 
+    Route::post('/registersubmit',[RegistrationController::class,'regSubmit'])->name('reg.submit');
+    // admin logout 
+    Route::get('/logout',[LoginController::class,'logout'])->name('admin.logout');
+
     Route::get("/dashboard",[DashboardController::class,"dashboard"]);
 
     // add category 

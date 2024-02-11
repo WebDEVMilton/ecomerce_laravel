@@ -126,6 +126,7 @@
                     </div>
                    
                 </div>
+                {!! Toastr::message() !!}
                 {{ $product->links() }} 
                 <!-- Container-fluid Ends-->
                 @include('Admin.product.addproductajax')

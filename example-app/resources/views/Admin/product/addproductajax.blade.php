@@ -34,24 +34,16 @@
                         cat_id:cat_id,
                     },
                     headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
 
                     success:function(response){
-                        // $('#subcat_id').append('<option value="'+value.id+'">'+value.name'+'</option>');
-                        
-                    },
-                    success:function(response){
-                        $('#subcat_id').html('<option value="">Select State</option>');
+                        $('#subcat_id').html('<option value="">Select Category</option>');
                         $.each(response.subcategorys,function(index, val){
-                        $('#subcat_id').append('<option value="'+val.id+'"> '+val.subcatname+' </option>')
+                        $('#subcat_id').append('<option value="'+val.id+'"> '+val.subcatname+' </option>');
                         });
                     }
                 })
-
-
-
-
             })
 
 
@@ -68,8 +60,9 @@
             $(document).on('submit','#Addproductform',function(event){
                 event.preventDefault();
                 let pname=$('#pname').val();
-                
-               alert(pname);
+                let subcatname=$('#subcatname').val();
+                let cat_id=$('#cat_id').val();
+               alert(subcatname);
                 
                 let formData = new FormData(this);
                 // formData.append('id',id);
@@ -96,10 +89,12 @@
                     cache:false,
                     contentType: false,
                     processData: false,
-
+                    headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                     success: function(response){
 
-                        if(response.status="success"){
+                        if(response.status=="success"){
 
                         }
                 
@@ -112,7 +107,7 @@
                 });
 
                 })
-            });
+        
 
 
 
@@ -121,6 +116,7 @@
             $(document).on('submit','#Updateproductform',function(event){
                 event.preventDefault();
                 let pname=$('#pname').val();
+                let subcat_id=$('#subcat_id').val();
                 
                alert(pname);
                 
@@ -178,6 +174,25 @@
                     success: function(response) {
                         //alert(data.success);
                         trObj.parents("tr").remove();
+                        Command: toastr["error"]("Deleted")
+                            toastr.options = {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                            }
+
                     }
                 });
             }
@@ -208,5 +223,6 @@
                 }
             })
         });
+    });
 
 </script>
