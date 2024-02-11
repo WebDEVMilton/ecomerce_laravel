@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-8 m-auto">
                   
-                 <form action="{{route('add.productdata')}}"  class="theme-form theme-form-2 mega-form" method="post"  enctype="multipart/form-data" id="Addproductform">
+                 <form action="{{route('add.productdata')}}"  class="theme-form theme-form-2 mega-form" method="post"  enctype="multipart/form-data" >
                     @csrf  
                     <div class="card">
                         <div class="card-body">
@@ -63,6 +63,7 @@
                                         <select class="js-example-basic-single w-100" name="subcat_id" id="subcat_id">
 
                                             <option disabled>Select Category</option>
+                                            <option value=""></option>
                                             
                                             
                                         </select>
@@ -464,7 +465,7 @@
                                     </div>
                                 </div>
 
-                                 <button  class="btn btn-primary " type="submit">Save product</button>
+                                 <button  class="btn btn-primary Addproductform" type="submit">Save product</button>
                             </div> 
                         </div>
                     </div>

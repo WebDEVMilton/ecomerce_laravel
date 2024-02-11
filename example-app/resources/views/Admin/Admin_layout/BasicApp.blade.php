@@ -57,26 +57,26 @@
 
     <!-- App css -->
     <link rel="stylesheet" type="text/css" href="{{asset('Admin/css/style.css')}}">
+    <!-- toaster  -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 
-<body>
+<body style="background:#f9f9f6">
     
 
 
     <!-- tap on top start -->
-    <div class="tap-top">
+    <!-- <div class="tap-top">
         <span class="lnr lnr-chevron-up"></span>
-    </div>
+    </div> -->
     <!-- tap on tap end -->
 
     <!-- page-wrapper Start-->
-    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+   
 
-    <!-- for header  -->
-    @include('Admin.Admin_layout.header')
 
-    <!-- Page Body Start-->
-    <div class="page-body-wrapper">
+
+    <!-- Page Body Start -->
 
     <!-- for sidebar  -->
     
@@ -85,14 +85,14 @@
     @yield("contents")
 
     <!-- for footer  -->
-    @include("Admin.Admin_layout.footer")
 
-    </div>
+
+
         <!-- Page Body End -->
-    </div>
-    <!-- page-wrapper End-->
     
-    @include("Admin.Admin_layout.ModalBox")
+    <!-- page-wrapper End -->
+    
+ 
 
 
     <!-- latest js -->

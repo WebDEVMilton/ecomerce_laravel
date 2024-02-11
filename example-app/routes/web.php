@@ -110,7 +110,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     // search product 
     Route::get('/search-product', [ProductlistController::class, 'searchProduct'])->name('search.product');
     // get paginate for search 
-    Route::get('/pagination', [ProductlistController::class, 'paginateProduct']);
+    // Route::get('/pagination', [ProductlistController::class, 'paginateProduct']);
 
 
     // 

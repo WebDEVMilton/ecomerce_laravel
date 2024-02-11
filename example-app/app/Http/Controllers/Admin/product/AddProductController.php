@@ -22,6 +22,8 @@ class AddProductController extends Controller
     public function getsubcategory(Request $request){
         $getsubcat['subcategorys'] =Addsubcatgeory::where('addcat_id',$request->cat_id)->get(['subcatname','id']);
         return response()->json($getsubcat);
+        //  $getsubcat =Addsubcatgeory::where('addcat_id',$request->cat_id)->get();
+        // return view('Admin.product.AddProduct',['getsubcat'=>$getsubcat]);
     }
     
 
@@ -43,8 +45,9 @@ class AddProductController extends Controller
             'pagetitle'=>'required',
             'metadesc'=>'required',
             'meta_url'=>'required',
+            
 
-            'pimage' => 'mimes:jpg,png,jpeg,gif,svg'
+            // 'pimage*' => 'mimes:jpg,png,jpeg,gif,svg'
         ]);
         if($request->TotalImages > 0)
         {

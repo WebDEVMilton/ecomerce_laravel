@@ -12,12 +12,6 @@
     
     
 
-
-
-
-
-
-
     <script>
         $(document).ready(function(){
 
@@ -44,7 +38,7 @@
                         });
                     }
                 })
-            })
+            });
 
 
 
@@ -57,41 +51,71 @@
 
             // insert product 
             
-            $(document).on('submit','#Addproductform',function(event){
+            $(document).on('click','.Addproductform',function(event){
                 event.preventDefault();
                 let pname=$('#pname').val();
-                let subcatname=$('#subcatname').val();
                 let cat_id=$('#cat_id').val();
-               alert(subcatname);
+                let subcat_id=$('#subcat_id').val();
+                let tags=$('#tags').val();
+                let exchange=$('#exchange').val();
+                let refund=$('#refund').val();
+                let pimage=$('#pimage').val();
+                let ptumbnail=$('#ptumbnail').val();
+                let pvideo=$('#pvideo').val();
+                let shipweight=$('#shipweight').val();
+                let price=$('#price').val();
+                let stock=$('#stock').val();
+                let quantity=$('#quantity').val();
+                let pagetitle=$('#pagetitle').val();
+                let metadesc=$('#metadesc').val();
+                let meta_url=$('#meta_url').val();
+               alert(pname+cat_id+subcat_id);
                 
-                let formData = new FormData(this);
+                // let formData = new FormData(this);
                 // formData.append('id',id);
-                formData.append('pname',pname);
-                formData.append('cat_id',cat_id);
-                formData.append('subcat_id',subcat_id);
-                formData.append('tags',tags);
-                formData.append('exchange',exchange);
-                formData.append('refund',refund);
-                formData.append('pimage',pimage);
-                formData.append('ptumbnail',ptumbnail);
-                formData.append('pvideo',pvideo);
-                formData.append('shipweight',shipweight);
-                formData.append('price',price);
-                formData.append('stock',stock);
-                formData.append('quantity',quantity);
-                formData.append('pagetitle',pagetitle);
-                formData.append('metadesc',metadesc);
-                formData.append('meta_url',meta_url);
+                // formData.append('pname',pname);
+                // formData.append('cat_id',cat_id);
+                // formData.append('subcat_id',subcat_id);
+                // formData.append('tags',tags);
+                // formData.append('exchange',exchange);
+                // formData.append('refund',refund);
+                // formData.append('pimage',pimage);
+                // formData.append('ptumbnail',ptumbnail);
+                // formData.append('pvideo',pvideo);
+                // formData.append('shipweight',shipweight);
+                // formData.append('price',price);
+                // formData.append('stock',stock);
+                // formData.append('quantity',quantity);
+                // formData.append('pagetitle',pagetitle);
+                // formData.append('metadesc',metadesc);
+                // formData.append('meta_url',meta_url);
                 $.ajax({
                     url:"{{route('add.productdata')}}",
                     method:'post',
-                    data: formData,
+                    data: {
+                        pname:pname,
+                        cat_id:cat_id,
+                        subcat_id:subcat_id,
+                        tags:tags,
+                        exchange:exchange,
+                        refund:refund,
+                        pimage:pimage,
+                        ptumbnail:ptumbnail,
+                        pvideo:pvideo,
+                        shipweight:shipweight,
+                        price:price,
+                        stock:stock,
+                        quantity:quantity,
+                        pagetitle:pagetitle,
+                        metadesc:metadesc,
+                        meta_url:meta_url,
+                    },
                     cache:false,
-                    contentType: false,
-                    processData: false,
+                    // contentType: false,
+                    // processData: false,
                     headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     success: function(response){
 
                         if(response.status=="success"){
@@ -109,42 +133,75 @@
                 })
         
 
-
-
-
             //   update insert product 
             $(document).on('submit','#Updateproductform',function(event){
                 event.preventDefault();
+                let id=$('#id').val();
                 let pname=$('#pname').val();
+                let cat_id=$('#cat_id').val();
                 let subcat_id=$('#subcat_id').val();
+                let tags=$('#tags').val();
+                let exchange=$('#exchange').val();
+                let refund=$('#refund').val();
+                let pimage=$('#pimage').val();
+                let ptumbnail=$('#ptumbnail').val();
+                let pvideo=$('#pvideo').val();
+                let shipweight=$('#shipweight').val();
+                let price=$('#price').val();
+                let stock=$('#stock').val();
+                let quantity=$('#quantity').val();
+                let pagetitle=$('#pagetitle').val();
+                let metadesc=$('#metadesc').val();
+                let meta_url=$('#meta_url').val();
                 
                alert(pname);
                 
-                let formData = new FormData(this);
-                formData.append('id',id);
-                formData.append('pname',pname);
-                formData.append('cat_id',cat_id);
-                formData.append('subcat_id',subcat_id);
-                formData.append('tags',tags);
-                formData.append('exchange',exchange);
-                formData.append('refund',refund);
-                formData.append('pimage',pimage);
-                formData.append('ptumbnail',ptumbnail);
-                formData.append('pvideo',pvideo);
-                formData.append('shipweight',shipweight);
-                formData.append('price',price);
-                formData.append('stock',stock);
-                formData.append('quantity',quantity);
-                formData.append('pagetitle',pagetitle);
-                formData.append('metadesc',metadesc);
-                formData.append('meta_url',meta_url);
+                // let formData = new FormData(this);
+                // formData.append('id',id);
+                // formData.append('pname',pname);
+                // formData.append('cat_id',cat_id);
+                // formData.append('subcat_id',subcat_id);
+                // formData.append('tags',tags);
+                // formData.append('exchange',exchange);
+                // formData.append('refund',refund);
+                // formData.append('pimage',pimage);
+                // formData.append('ptumbnail',ptumbnail);
+                // formData.append('pvideo',pvideo);
+                // formData.append('shipweight',shipweight);
+                // formData.append('price',price);
+                // formData.append('stock',stock);
+                // formData.append('quantity',quantity);
+                // formData.append('pagetitle',pagetitle);
+                // formData.append('metadesc',metadesc);
+                // formData.append('meta_url',meta_url);
                 $.ajax({
                     url:"{{route('update.product')}}",
                     method:'post',
-                    data: formData,
+                    data: {
+                        id:id,
+                        pname:pname,
+                        cat_id:cat_id,
+                        subcat_id:subcat_id,
+                        tags:tags,
+                        exchange:exchange,
+                        refund:refund,
+                        pimage:pimage,
+                        ptumbnail:ptumbnail,
+                        pvideo:pvideo,
+                        shipweight:shipweight,
+                        price:price,
+                        stock:stock,
+                        quantity:quantity,
+                        pagetitle:pagetitle,
+                        metadesc:metadesc,
+                        meta_url:meta_url,
+                    },
                     cache:false,
-                    contentType: false,
-                    processData: false,
+                    // contentType: false,
+                    // processData: false,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
 
                     success: function(response) {
                 

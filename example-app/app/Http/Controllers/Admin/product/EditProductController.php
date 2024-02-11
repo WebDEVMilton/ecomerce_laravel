@@ -22,7 +22,7 @@ class EditProductController extends Controller
     public function updateproduct(Request $request){
 
         $request->validate([
-            'ptumbnail'=>'mimes:jpg,png,jpeg,gif,svg',
+            'ptumbnail.*'=>'mimes:jpg,png,jpeg,gif,svg',
             'pimage.*' => 'mimes:jpg,png,jpeg,gif,svg'
 
 

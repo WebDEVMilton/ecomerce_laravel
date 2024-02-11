@@ -21,7 +21,7 @@ class LoginController extends Controller
         if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
             return redirect('/admin/dashboard');
         }else{
-            Session::flash('err','invalid pass');
+            Session::flash('err','invalid Credential');
             return redirect()->back();
         }
     }
