@@ -121,7 +121,7 @@
                                         class="col-sm-3 col-form-label form-label-title">Refundable</label>
                                     <div class="col-sm-9">
                                         <label class="switch">
-                                            <input type="checkbox" value="1"  name="refund" id="refund" value="{{$products->refund}}" ><span
+                                            <input type="checkbox"  name="refund" id="refund" value="{{$products->refund}}" ><span
                                                 class="switch-state"></span>
                                         </label>
                                     </div>
@@ -469,7 +469,7 @@
                                     </div>
                                 </div>
 
-                                 <button  class="btn btn-primary " type="submit">Save product</button>
+                                 <button  class="btn btn-primary" type="submit">Save product</button>
                             </div> 
                         </div>
                     </div>

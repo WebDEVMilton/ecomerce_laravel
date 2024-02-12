@@ -13,7 +13,7 @@ class Addsubcatgeory extends Model
 
     public function category()
     {
-        return $this->belongsTo(Addcategory::class,'addcat_id');
+        return $this->belongsTo(Addcategory::class,'addcat_id','id');
     }
 
     public function product(){

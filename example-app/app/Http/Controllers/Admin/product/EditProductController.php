@@ -22,29 +22,38 @@ class EditProductController extends Controller
     public function updateproduct(Request $request){
 
         $request->validate([
-            'ptumbnail.*'=>'mimes:jpg,png,jpeg,gif,svg',
-            'pimage.*' => 'mimes:jpg,png,jpeg,gif,svg'
+            // 'ptumbnail.*'=>'mimes:jpg,png,jpeg,gif,svg',
+            // 'pimage.*' => 'mimes:jpg,png,jpeg,gif,svg'
 
 
         ]);
-        if($request->TotalImages > 0)
-        {
+        // if($request->TotalImages > 0)
+        // {
                
-           for ($x = 0; $x < $request->TotalImages; $x++) 
-           {
+        //    for ($x = 0; $x < $request->TotalImages; $x++) 
+        //    {
 
-               if ($request->hasFile('pimage'.$x)) 
-                {
-                    $file= $request->file('pimage'.$x);
+        //        if ($request->hasFile('pimage'.$x)) 
+        //         {
+        //             $file= $request->file('pimage'.$x);
 
-                    $pimage = $file->move('public/Admin/images');
-                    $pimage= $file->getClientOriginalName();
+        //             $pimage = $file->move('Admin/images');
+        //             $pimage= $file->getClientOriginalName();
 
-                    //$insert[$x]['name'] = $name;
-                    $insert[$x]['pimage'] = $pimage;
-                }
-           }
-        }
+        //             //$insert[$x]['name'] = $name;
+        //             $insert[$x]['pimage'] = $pimage;
+        //         }
+        //    }
+        // }
+        if($pimage = $request->file('pimage')){
+            $pimageName = time().'-'.uniqid().'.'.$pimage->getClientOriginalExtension();
+            $pimage->move('Admin/images', $pimageName);
+         }
+         if($ptumbnail = $request->file('ptumbnail')){
+            $ptumbnailName = time().'-'.uniqid().'.'.$ptumbnail->getClientOriginalExtension();
+            $ptumbnail->move('Admin/images', $ptumbnailName);
+         }
+
 
         Addproduct::where('id',$request->id)->update([
             'pname'=>$request->pname,
@@ -53,8 +62,8 @@ class EditProductController extends Controller
             'tags'=>$request->tags,
             'exchange'=>$request->exchange,
             'refund'=>$request->refund,
-            'pimage'=>$request->pimage,
-            'ptumbnail'=>$request->ptumbnail,
+            'pimage'=>$pimageName,
+            'ptumbnail'=>$ptumbnailName,
             'pvideo'=>$request->pvideo,
             'shipweight'=>$request->shipweight,
             'price'=>$request->price,

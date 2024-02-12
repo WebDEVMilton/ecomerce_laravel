@@ -49,24 +49,32 @@ class AddProductController extends Controller
 
             // 'pimage*' => 'mimes:jpg,png,jpeg,gif,svg'
         ]);
-        if($request->TotalImages > 0)
-        {
+        // if($request->TotalImages > 0)
+        // {
                
-           for ($x = 0; $x < $request->TotalImages; $x++) 
-           {
+        //    for ($x = 0; $x < $request->TotalImages; $x++) 
+        //    {
 
-               if ($request->hasFile('pimage'.$x)) 
-                {
-                    $file= $request->file('pimage'.$x);
+        //        if ($request->hasFile('pimage'.$x)) 
+        //         {
+        //             $file= $request->file('pimage'.$x);
 
-                    $pimage = $file->move('public/Admin/images');
-                    $pimage= $file->getClientOriginalName();
+        //             $pimage = $file->move('public/Admin/images');
+        //             $pimage= $file->getClientOriginalName();
 
-                    //$insert[$x]['name'] = $name;
-                    $insert[$x]['pimage'] = $pimage;
-                }
-           }
-        }
+        //             //$insert[$x]['name'] = $name;
+        //             $insert[$x]['pimage'] = $pimage;
+        //         }
+        //    }
+        // }
+        if($pimage = $request->file('pimage')){
+            $pimageName = time().'-'.uniqid().'.'.$pimage->getClientOriginalExtension();
+            $pimage->move('Admin/images', $pimageName);
+         }
+         if($ptumbnail = $request->file('ptumbnail')){
+            $ptumbnailName = time().'-'.uniqid().'.'.$ptumbnail->getClientOriginalExtension();
+            $ptumbnail->move('Admin/images',  $ptumbnailName);
+         }
 
         $product=new Addproduct();
         $product->pname=$request->pname;
@@ -75,8 +83,8 @@ class AddProductController extends Controller
         $product->tags=$request->tags;
         $product->exchange=$request->exchange;
         $product->refund=$request->refund;
-        $product->pimage=$request->pimage;
-        $product->ptumbnail=$request->ptumbnail;
+        $product->pimage=$pimageName;
+        $product->ptumbnail=$ptumbnailName;
         $product->pvideo=$request->pvideo;
         $product->shipweight=$request->shipweight;
         $product->price=$request->price;

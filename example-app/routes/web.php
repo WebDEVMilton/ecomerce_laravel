@@ -100,7 +100,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
     // delete product 
     // Route::post("delete_Product",[ProductlistController::class,"deleteProduct"])->name('delete.product');
-    // delte 
+    // delete 
     Route::delete('delete_Product/{id}', [ProductlistController::class, 'deleteProduct'])->name('delete.product');
 
     // delete product 

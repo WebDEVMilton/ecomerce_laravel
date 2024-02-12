@@ -4,11 +4,17 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\admin\Addcategory;
+use App\Models\admin\Addsubcatgeory;
 
 class SiteController extends Controller
 {
     function index(){
-        return view("user.index");
+        $getcategory=Addcategory::with('subcategory')->get();
+
+
+
+        return view("user.index",['getcategory'=>$getcategory]);
     }
     function shop_category(){
         return view("user.shop_category");

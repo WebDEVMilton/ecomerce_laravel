@@ -1,6 +1,415 @@
 @extends("user.layout.MasterApp")
 @section("title","On-demand last-mile delivary")
 @section("content")
+
+
+
+<div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header-nav">
+                        <div class="header-nav-left">
+                            <button class="dropdown-category">
+                                <i data-feather="align-left"></i>
+                                <span>All Categories</span>
+                            </button>
+
+                            <div class="category-dropdown">
+                                <div class="category-title">
+                                    <h5>Categories</h5>
+                                    <button type="button" class="btn p-0 close-button text-content">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
+
+                                <ul class="category-list">
+                                    @foreach($getcategory as $categorydata)
+                                    <li class="onhover-category-list">
+                                        <a href="javascript:void(0)" class="category-name">
+                                            <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/vegetable.svg" alt="">
+                                            <h6>{{$categorydata->catname}}</h6>
+                                            <i class="fa-solid fa-angle-right"></i>
+                                        </a>
+
+                                        <div class="onhover-category-box">
+                                            <div class="list-1">
+                                                <div class="category-title-box">
+                                                    <h5>{{$categorydata->catname}}</h5>
+                                                </div>
+                                                <ul>
+                                                    @foreach($categorydata->subcategory as $subcat)
+                                                    <li>
+                                                        <a href="javascript:void(0)">{{$subcat->subcatname}}</a>
+                                                    </li>
+                                                    @endforeach
+                                                    
+                                                </ul>
+                                            </div>
+
+                                            <div class="list-2">
+                                                <div class="category-title-box">
+                                                    <h5>Fresh Fruit</h5>
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Banana & Papaya</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Kiwi, Citrus Fruit</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Apples & Pomegranate</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Seasonal Fruits</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Mangoes</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Fruit Baskets</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @endforeach
+
+                                 
+
+                                    <li class="onhover-category-list">
+                                        <a href="javascript:void(0)" class="category-name">
+                                            <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/meats.svg" alt="">
+                                            <h6>Meats & Seafood</h6>
+                                            <i class="fa-solid fa-angle-right"></i>
+                                        </a>
+
+                                        <div class="onhover-category-box">
+                                            <div class="list-1">
+                                                <div class="category-title-box">
+                                                    <h5>Meat</h5>
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Fresh Meat</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Frozen Meat</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Marinated Meat</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Fresh & Frozen Meat</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                   
+                          
+
+                           
+
+                                    <li class="onhover-category-list">
+                                        <a href="javascript:void(0)" class="category-name">
+                                            <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/grocery.svg" alt="">
+                                            <h6>Grocery & Staples</h6>
+                                            <i class="fa-solid fa-angle-right"></i>
+                                        </a>
+
+                                        <div class="onhover-category-box">
+                                            <div class="list-1">
+                                                <div class="category-title-box">
+                                                    <h5>Grocery</h5>
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Lemon, Ginger & Garlic</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Indian & Exotic Herbs</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Vegetables</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Fruits</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="list-2">
+                                                <div class="category-title-box">
+                                                    <h5>Organic Staples</h5>
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Dry Fruits</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Dals & Pulses</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Millet & Flours</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Sugar, Jaggery</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Masalas & Spices</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Rice, Other Rice</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Flours</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Organic Edible Oil, Ghee</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="header-nav-middle">
+                            <div class="main-nav navbar navbar-expand-xl navbar-light navbar-sticky">
+                                <div class="offcanvas offcanvas-collapse order-xl-2" id="primaryMenu">
+                                    <div class="offcanvas-header navbar-shadow">
+                                        <h5>Menu</h5>
+                                        <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="{{url('/')}}"
+                                                    data-bs-toggle="dropdown">Home</a>
+                                            </li>
+
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                                    data-bs-toggle="dropdown">Shop</a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/Shop category sidebar')}}">Shop
+                                                            Category Sidebar</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/shop_left_sidebar')}}">Shop Left
+                                                            Sidebar</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                                    data-bs-toggle="dropdown">Product</a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li class="sub-dropdown-hover">
+                                                        <a href="javascript:void(0)" class="dropdown-item">Product
+                                                            Thumbnail</a>
+                                                        <ul class="sub-menu">
+                                                            <li>
+                                                                <a href="{{url('/product_left_thumbnail')}}">Left Thumbnail</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="nav-item dropdown dropdown-mega">
+                                                <a class="nav-link dropdown-toggle ps-xl-2 ps-0"
+                                                    href="javascript:void(0)" data-bs-toggle="dropdown">Mega Menu</a>
+
+                                                <div class="dropdown-menu dropdown-menu-2">
+                                                    <div class="row">
+                                                        <div class="dropdown-column col-xl-3">
+                                                            <h5 class="dropdown-header">Daily Vegetables</h5>
+                                                            <a class="dropdown-item" href="shop-left-sidebar.html">Beans
+                                                                & Brinjals</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Broccoli & Cauliflower</a>
+
+                                                            <a href="shop-left-sidebar.html"
+                                                                class="dropdown-item">Chilies, Garlic</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Vegetables & Salads</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Gourd, Cucumber</a>
+
+                                                            <a class="dropdown-item" href="{{url('/shop_left_sidebar')}}">Herbs
+                                                                & Sprouts</a>
+
+                                                            <a href="demo-personal-portfolio.html"
+                                                                class="dropdown-item">Lettuce & Leafy</a>
+                                                        </div>
+
+                                                        <div class="dropdown-column col-xl-3">
+                                                            <h5 class="dropdown-header">Baby Tender</h5>
+                                                            <a class="dropdown-item" href="{{url('/shop_left_sidebar')}}">Beans
+                                                                & Brinjals</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Broccoli & Cauliflower</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Chilies, Garlic</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Vegetables & Salads</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Gourd, Cucumber</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Potatoes & Tomatoes</a>
+
+                                                            <a href="{{url('/shop_left_sidebar')}}" class="dropdown-item">Peas
+                                                                & Corn</a>
+                                                        </div>
+
+                                                        <div class="dropdown-column col-xl-3">
+                                                            <h5 class="dropdown-header">Exotic Vegetables</h5>
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Asparagus & Artichokes</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Avocados & Peppers</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Broccoli & Zucchini</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Celery, Fennel & Leeks</a>
+
+                                                            <a class="dropdown-item"
+                                                                href="{{url('/shop_left_sidebar')}}">Chilies & Lime</a>
+                                                        </div>
+
+                                                        <div class="dropdown-column dropdown-column-img col-3"></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                                    data-bs-toggle="dropdown">Blog</a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/blog_detail')}}">Blog Detail</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/blog_list')}}">Blog List</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="nav-item dropdown new-nav-item">
+                                                <label class="new-dropdown">New</label>
+                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                                    data-bs-toggle="dropdown">Pages</a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/404')}}">404</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/cart')}}">Cart</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/contact')}}">Contact</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/checkout')}}">Checkout</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{url('/coming_soon')}}">Coming Soon</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="compare.html">Compare</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="faq.html">Faq</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="order-success.html">Order
+                                                            Success</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="order-tracking.html">Order
+                                                            Tracking</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="otp.html">OTP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="search.html">Search</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="user-dashboard.html">User
+                                                            Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="wishlist.html">Wishlist</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                                    data-bs-toggle="dropdown">Seller</a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="seller-become.html">Become a
+                                                            Seller</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="seller-dashboard.html">Seller
+                                                            Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="seller-detail.html">Seller
+                                                            Detail</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="seller-detail-2.html">Seller
+                                                            Detail 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="seller-grid.html">Seller Grid</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="seller-grid-2.html">Seller Grid
+                                                            2</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="header-nav-right">
+                            <button class="btn deal-button" data-bs-toggle="modal" data-bs-target="#deal-box">
+                                <i data-feather="zap"></i>
+                                <span>Deal Today</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
     <!-- mobile fix menu start -->
     <div class="mobile-menu d-md-none d-block mobile-cart">
         <ul>
@@ -183,87 +592,18 @@
                     <div class="p-sticky">
                         <div class="category-menu">
                             <h3>Category</h3>
-                            <ul>
-                                <li>
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/vegetable.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Vegetables & Fruit</a>
-                                        </h5>
-                                    </div>
-                                </li>
+                            <ul class="pb-4">
+                                @foreach($getcategory as $categorydata)
                                 <li>
                                     <div class="category-list">
                                         <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/cup.svg" class="blur-up lazyload" alt="">
                                         <h5>
-                                            <a href="shop-left-sidebar.html">Beverages</a>
+                                            <a href="shop-left-sidebar.html">{{$categorydata->catname}}</a>
                                         </h5>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/meats.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Meats & Seafood</a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/breakfast.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Breakfast & Dairy</a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/frozen.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Frozen Foods</a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/biscuit.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Biscuits & Snacks</a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/grocery.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Grocery & Staples</a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/drink.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Wines & Alcohol Drinks</a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/milk.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Milk & Dairies</a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li class="pb-30">
-                                    <div class="category-list">
-                                        <img src="https://themes.pixelstrap.com/fastkart/assets/svg/1/pet.svg" class="blur-up lazyload" alt="">
-                                        <h5>
-                                            <a href="shop-left-sidebar.html">Pet Foods</a>
-                                        </h5>
-                                    </div>
-                                </li>
+                                @endforeach
+                             
                             </ul>
 
                             <ul class="value-list">

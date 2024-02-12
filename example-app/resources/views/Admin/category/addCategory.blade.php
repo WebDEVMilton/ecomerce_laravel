@@ -136,7 +136,7 @@
                                 <h5>Category Information</h5>
                             </div>
 
-                            <form  action="{{route('add.subcat')}}" method="post" class="theme-form theme-form-2 mega-form">
+                            <form  action="{{route('add.subcat')}}" method="post" class="theme-form theme-form-2 mega-form" id="subcatform">
                                  @csrf  
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Add Parent Category</label>
