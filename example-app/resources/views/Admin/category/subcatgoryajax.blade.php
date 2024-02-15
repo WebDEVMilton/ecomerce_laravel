@@ -16,7 +16,7 @@
                 let addcat_id=$('#addcat_id').val();
                 let subcatname=$('#subcatname').val();
 
-                alert(addcat_id+subcatname);
+                // alert(addcat_id+subcatname);
 
                 $.ajax({
                     url:"{{route('add.subcat')}}",

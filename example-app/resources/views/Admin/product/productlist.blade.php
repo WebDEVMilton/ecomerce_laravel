@@ -55,7 +55,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="table-image">
-                                                            <img src="{{asset($products->ptumbnail)}}" class="img-fluid"
+                                                            <img src="{{asset('Admin/images/img/'.$products->ptumbnail)}}" class="img-fluid"
                                                                     alt="">
                                                             </div>
                                                         </td>

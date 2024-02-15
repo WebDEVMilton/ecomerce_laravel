@@ -46,6 +46,10 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 |
 */
 Route::get("/",[SiteController::class,"index"]);
+Route::get("/getproduct/{product_id}/{category_id}",[SiteController::class,"getSingleproduct"]);
+
+
+
 Route::get("/Shop category sidebar",[SiteController::class,"shop_category"]);
 Route::get("/shop_left_sidebar",[SiteController::class,"shop_left_sidebar"]);
 Route::get("/product_left_thumbnail",[SiteController::class,"product_left_thumbnail"]);
@@ -57,11 +61,39 @@ Route::get("/contact",[SiteController::class,"contact"]);
 Route::get("/checkout",[SiteController::class,"checkout"]);
 Route::get("/coming_soon",[SiteController::class,"coming_soon"]);
 
+Route::get("/forgot-password",function(){
+
+    return view('user.Auth.forgot');
+});
+Route::get("/user-login",function(){
+
+    return view('user.Auth.login');
+});
+Route::get("/user-signup",function(){
+
+    return view('user.Auth.signup');
+});
+
+
+
+
+
+
 
 // admin pannel login
 Route::get('/login',[LoginController::class,'loginpage']);
 Route::post('/loginsubmit',[LoginController::class,'login'])->name('admin.login');
 
+
+
+Route::group(['middleware'=>'disable_back_btn'],function(){
+
+Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
+    // admin logout 
+    Route::get('/logout',[LoginController::class,'logout'])->name('admin.logout');
+});
+
+});
 
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
@@ -147,9 +179,6 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     //
     Route::get("/list",[ListController::class,"list"]);
 });
-
-
-
 
 
 

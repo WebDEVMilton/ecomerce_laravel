@@ -2,7 +2,6 @@
 <html lang="en">
 
 
-<!-- Mirrored from themes.pixelstrap.com/fastkart/front-end/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Oct 2023 17:19:47 GMT -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,5 +69,5 @@
 </body>
 
 
-<!-- Mirrored from themes.pixelstrap.com/fastkart/front-end/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Oct 2023 17:19:47 GMT -->
+
 </html>

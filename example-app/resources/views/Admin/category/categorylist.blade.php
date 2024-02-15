@@ -25,6 +25,7 @@
                                             <table class="table all-package theme-table" id="table_id">
                                                 <thead>
                                                     <tr>
+                                                        <th>Image</th>
                                                         <th>Category</th>
                                                         <th>Sub Category</th>
                                                         <th>Date</th>
@@ -37,6 +38,12 @@
 
                                                 @foreach($getcategory as $getcategorys)
                                                     <tr>
+                                                        <td>
+                                                            <div class="table-image">
+                                                            <img src="{{asset('Admin/images/img/'.$getcategorys->category->catimage)}}" class="img-fluid"
+                                                                    alt="">
+                                                            </div>
+                                                        </td>
                                                         <td>{{$getcategorys->category->catname}}</td>
 
                                                         <td>{{$getcategorys->subcatname}}</td>

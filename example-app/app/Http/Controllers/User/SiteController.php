@@ -6,16 +6,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\admin\Addcategory;
 use App\Models\admin\Addsubcatgeory;
+use App\Models\admin\Addproduct;
 
 class SiteController extends Controller
 {
     function index(){
         $getcategory=Addcategory::with('subcategory')->get();
+        $getProductToday = Addproduct::with('subcategory')->latest()->get();
 
 
 
-        return view("user.index",['getcategory'=>$getcategory]);
+
+        return view("user.index",['getcategory'=>$getcategory,'getProductToday'=>$getProductToday]);
     }
+    function getSingleproduct(Request $request, $productId,$catId){
+        $getSingleProduct = Addproduct::where('id',$productId)->get();
+        $getCatProduct = Addproduct::with('category')->where('cat_id',$catId)->get();
+
+        return view("user.product_left_thumbnail",['getSingleProduct'=>$getSingleProduct,'getCatProduct'=>$getCatProduct]);
+    }
+
+
     function shop_category(){
         return view("user.shop_category");
     }

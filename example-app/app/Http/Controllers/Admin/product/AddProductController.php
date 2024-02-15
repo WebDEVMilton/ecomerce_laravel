@@ -69,11 +69,11 @@ class AddProductController extends Controller
         // }
         if($pimage = $request->file('pimage')){
             $pimageName = time().'-'.uniqid().'.'.$pimage->getClientOriginalExtension();
-            $pimage->move('Admin/images', $pimageName);
+            $pimage->move('Admin/images/img', $pimageName);
          }
          if($ptumbnail = $request->file('ptumbnail')){
             $ptumbnailName = time().'-'.uniqid().'.'.$ptumbnail->getClientOriginalExtension();
-            $ptumbnail->move('Admin/images',  $ptumbnailName);
+            $ptumbnail->move('Admin/images/img',  $ptumbnailName);
          }
 
         $product=new Addproduct();

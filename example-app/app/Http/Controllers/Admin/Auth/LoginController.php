@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
+use Redirect;
+
 
 class LoginController extends Controller
 {
@@ -21,12 +23,14 @@ class LoginController extends Controller
         if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
             return redirect('/admin/dashboard');
         }else{
-            Session::flash('err','invalid Credential');
+            Session::flush('err','invalid Credential');
             return redirect()->back();
         }
     }
     public function logout(){
         Auth::guard('admin')->logout();
+        Session::flush();
+        Redirect::back();
         return redirect('/login');
     }
 

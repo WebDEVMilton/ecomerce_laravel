@@ -12,18 +12,21 @@
     <script>
         $(document).ready(function(){
             // insert category 
-            $(document).on('click','.add_category',function(event){
+            $(document).on('submit','#addcategoryform',function(event){
                 event.preventDefault();
-                let catname=$('#catname').val();
+                // let catname=$('#catname').val();
                 // alert(catname)
+                let formData = new FormData(this);
 
                 $.ajax(
                     {
                         url:"{{route('add.parentcat')}}",
                         method:"post",
-                        data:{
-                            catname:catname,
-                        },
+                        data: formData,
+                        cache:false,
+                        contentType: false,
+                        processData: false,
+
                         headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
@@ -47,7 +50,7 @@
                             "hideMethod": "fadeOut"
                         }
 
-                        $('#addparentcat')[0].reset();
+                        $('#add_categoryform')[0].reset();
                         },
                     error:function(error){
                         Command: toastr["error"]("Something Went Wrong")
@@ -89,7 +92,7 @@
 
             console.log(id);
 
-            if (confirm("Are you sure to delete product????")) {
+            // if (confirm("Are you sure to delete product????")) {
                 $.ajax({
                     url: "{{ route ('delete.cat') }}",
                     method: "post",
@@ -124,7 +127,7 @@
                         }
                     },
                 });
-            }
+            // }
         });
     });
 

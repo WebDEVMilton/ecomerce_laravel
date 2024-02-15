@@ -2,7 +2,6 @@
 <html lang="en">
 
 
-<!-- Mirrored from themes.pixelstrap.com/fastkart/front-end/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Oct 2023 17:17:48 GMT -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,8 +66,9 @@
         @yield("content");
 
         @include("user.layout.footer");
+       
 
-
+       
 
 
 
@@ -122,5 +122,5 @@
 </body>
 
 
-<!-- Mirrored from themes.pixelstrap.com/fastkart/front-end/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Oct 2023 17:18:17 GMT -->
+
 </html>

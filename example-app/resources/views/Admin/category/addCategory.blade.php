@@ -22,7 +22,7 @@
                             <!-- <script>alert('hello')</script>     -->
                             </div>
 
-                            <form action="{{route('add.parentcat')}}" method="post" class="theme-form theme-form-2 mega-form" id="addparentcat">
+                            <form action="{{route('add.parentcat')}}" method="post" class="theme-form theme-form-2 mega-form" id="addcategoryform" enctype="multipart/form-data">
                                 @csrf  
                                 <div class="mb-4 row align-items-center">
                                     <label class="form-label-title col-sm-3 mb-0">Category Name</label>
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="mb-4 row align-items-center">
+                                <div class="mb-4 row align-items-center">
                                     <label class="col-sm-3 col-form-label form-label-title">Category
                                         Image</label>
                                     <div class="form-group col-sm-9">
@@ -41,10 +41,10 @@
                                                 <i class="ri-upload-2-line"></i>
                                                 <p>Choose an image file or drag it here.</p>
                                             </div>
-                                            <input type="file" class="dropzone">
+                                            <input type="file" class="dropzone" name="catimage" id="catimage">
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
 
                                 <!-- <div class="mb-4 row align-items-center">
                                     <div class="col-sm-3 form-label-title">Select Category Icon</div>
@@ -121,7 +121,7 @@
                                     </div>
                                 </div> -->
 
-                                <button type="submit" class="btn btn-primary add_category">Save</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
 
                             </form>
                         </div>

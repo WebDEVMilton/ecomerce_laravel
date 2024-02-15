@@ -53,12 +53,9 @@
                                             
                                             <option  value="{{$products->category->id}}">{{$products->category->catname}}</option>
                                            
-
                                         </select>
                                     </div>
                                 </div>
-
-
                                 <div class="mb-4 row align-items-center">
                                     <label
                                         class="col-sm-3 col-form-label form-label-title">Subcategory</label>

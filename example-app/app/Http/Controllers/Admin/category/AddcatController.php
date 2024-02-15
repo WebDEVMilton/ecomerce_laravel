@@ -23,9 +23,15 @@ class AddcatController extends Controller
             'catname'=>'required'
 
         ]);
+        $catimageName="";
+        if($catimage = $request->file('catimage')){
+            $catimageName = time().'-'.uniqid().'.'.$catimage->getClientOriginalExtension();
+            $catimage->move('Admin/images/img',  $catimageName);
+         }
 
         $category=new Addcategory();
         $category->catname=$request->catname;
+        $category->catimage=$catimageName;
         $category->save();
 
     }
