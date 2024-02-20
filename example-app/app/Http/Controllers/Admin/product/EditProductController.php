@@ -27,24 +27,8 @@ class EditProductController extends Controller
 
 
         ]);
-        // if($request->TotalImages > 0)
-        // {
-               
-        //    for ($x = 0; $x < $request->TotalImages; $x++) 
-        //    {
-
-        //        if ($request->hasFile('pimage'.$x)) 
-        //         {
-        //             $file= $request->file('pimage'.$x);
-
-        //             $pimage = $file->move('Admin/images');
-        //             $pimage= $file->getClientOriginalName();
-
-        //             //$insert[$x]['name'] = $name;
-        //             $insert[$x]['pimage'] = $pimage;
-        //         }
-        //    }
-        // }
+        
+        
         if($pimage = $request->file('pimage')){
             $pimageName = time().'-'.uniqid().'.'.$pimage->getClientOriginalExtension();
             $pimage->move('Admin/images', $pimageName);
@@ -79,8 +63,6 @@ class EditProductController extends Controller
         return response()->json([
             'status'=>'success'
         ]);
-
-
         
     }
 }

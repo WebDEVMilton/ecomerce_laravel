@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 use App\Models\admin\Addcategory;
 use App\Models\admin\Addsubcatgeory;
 use App\Models\admin\Addproduct;
+use App\Models\Order;
 
 class SiteController extends Controller
 {
     function index(){
         $getcategory=Addcategory::with('subcategory')->get();
         $getProductToday = Addproduct::with('subcategory')->latest()->get();
+        $getproductAsc = Addproduct::with('subcategory')->orderBy('created_at', 'asc')->get();
 
 
-
-
-        return view("user.index",['getcategory'=>$getcategory,'getProductToday'=>$getProductToday]);
+        return view("user.index",['getcategory'=>$getcategory,'getProductToday'=>$getProductToday,'getproductAsc'=>$getproductAsc]);
     }
     function getSingleproduct(Request $request, $productId,$catId){
         $getSingleProduct = Addproduct::where('id',$productId)->get();
@@ -26,7 +26,9 @@ class SiteController extends Controller
         return view("user.product_left_thumbnail",['getSingleProduct'=>$getSingleProduct,'getCatProduct'=>$getCatProduct]);
     }
 
-
+    function user_dashboard(){
+        return view("user.user_Dashboard.user-dashboard");
+    }
     function shop_category(){
         return view("user.shop_category");
     }
@@ -46,7 +48,9 @@ class SiteController extends Controller
         return view("user.404_page");
     }
     function cart(){
-        return view("user.cart");
+        // $getcartlist=Order::with('product')->where('ipadress',$ip)->get();
+        $getcartlist=Order::with('product')->get();
+        return view("user.cart",['getcartlist'=>$getcartlist]);
     }
     function contact(){
         return view("user.contact");

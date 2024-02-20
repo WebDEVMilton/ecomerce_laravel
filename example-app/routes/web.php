@@ -32,6 +32,9 @@ use App\Http\Controllers\Admin\report\ReportController;
 use App\Http\Controllers\Admin\list\ListController;
 use App\Http\Controllers\Admin\Auth\RegistrationController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\User\Auth\UserLoginController;
+use App\Http\Controllers\User\Auth\SignupController;
+use App\Http\Controllers\User\Order\OrderController;
 
 
 
@@ -45,8 +48,20 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get("/",[SiteController::class,"index"]);
+Route::get('/user-login',[UserLoginController::class,'loginpage'])->name('login.page');
+Route::post('/user-loginSubmit',[UserLoginController::class,'userlogin'])->name('user.login');
+Route::get('/user-signup',[SignupController::class,'signPage'])->name('user.signup');
+Route::post('/user-signupSubmit',[SignupController::class,'userSubmit'])->name('user.submit');
 Route::get("/getproduct/{product_id}/{category_id}",[SiteController::class,"getSingleproduct"]);
+
+
+Route::post("/addcart",[OrderController::class,'addcart'])->name('add.cart');
+
+Route::post('/quantity-update',[OrderController::class,'updateQuantity'])->name('update.quantity');
+
+
 
 
 
@@ -56,23 +71,29 @@ Route::get("/product_left_thumbnail",[SiteController::class,"product_left_thumbn
 Route::get("/blog_detail",[SiteController::class,"blog_detail"]);
 Route::get("/blog_list",[SiteController::class,"blog_list"]);
 Route::get("/404",[SiteController::class,"error_page"]);
-Route::get("/cart",[SiteController::class,"cart"]);
+Route::get("/cart",[SiteController::class,"cart"])->name('cart.page');
 Route::get("/contact",[SiteController::class,"contact"]);
-Route::get("/checkout",[SiteController::class,"checkout"]);
+Route::get("/checkout",[SiteController::class,"checkout"])->name('check.out');
 Route::get("/coming_soon",[SiteController::class,"coming_soon"]);
 
-Route::get("/forgot-password",function(){
+Route::group(['prefix'=>'user','middleware'=>'web'],function(){
+    Route::get("/user-dashboard/{id}/{name}",[SiteController::class,"user_dashboard"])->name('user.dashboard');
+    Route::get('/logout',[UserLoginController::class,'logout'])->name('user.logout');
 
-    return view('user.Auth.forgot');
 });
-Route::get("/user-login",function(){
 
-    return view('user.Auth.login');
-});
-Route::get("/user-signup",function(){
 
-    return view('user.Auth.signup');
-});
+// Route::get("/forgot-password",function(){
+//     return view('user.Auth.forgot');
+// });
+// Route::get("/user-login",function(){
+
+//     return view('user.Auth.login');
+// });
+// Route::get("/user-signup",function(){
+
+//     return view('user.Auth.signup');
+// });
 
 
 

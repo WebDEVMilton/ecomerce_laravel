@@ -186,6 +186,7 @@
 
                                             <div class="onhover-div">
                                                 <ul class="cart-list">
+                                                    @foreach($getcartlists as $getcartlistDatas)
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.html" class="drop-image">
@@ -195,7 +196,7 @@
 
                                                             <div class="drop-contain">
                                                                 <a href="product-left-thumbnail.html">
-                                                                    <h5>Fantasy Crunchy Choco Chip Cookies</h5>
+                                                                    <h5>{{$getcartlistDatas->product->pname}}</h5>
                                                                 </a>
                                                                 <h6><span>1 x</span> $80.58</h6>
                                                                 <button class="close-button close_button">
@@ -204,26 +205,7 @@
                                                             </div>
                                                         </div>
                                                     </li>
-
-                                                    <li class="product-box-contain">
-                                                        <div class="drop-cart">
-                                                            <a href="product-left-thumbnail.html" class="drop-image">
-                                                                <img src="../assets/images/vegetable/product/2.png"
-                                                                    class="blur-up lazyload" alt="">
-                                                            </a>
-
-                                                            <div class="drop-contain">
-                                                                <a href="product-left-thumbnail.html">
-                                                                    <h5>Peanut Butter Bite Premium Butter Cookies 600 g
-                                                                    </h5>
-                                                                </a>
-                                                                <h6><span>1 x</span> $25.68</h6>
-                                                                <button class="close-button close_button">
-                                                                    <i class="fa-solid fa-xmark"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                                                    @endforeach
                                                 </ul>
 
                                                 <div class="price-box">
@@ -232,9 +214,14 @@
                                                 </div>
 
                                                 <div class="button-group">
-                                                    <a href="cart.html" class="btn btn-sm cart-button">View Cart</a>
-                                                    <a href="checkout.html" class="btn btn-sm cart-button theme-bg-color
+                                                    <a href="{{route('cart.page')}}" class="btn btn-sm cart-button">View Cart</a>
+                                                    @if(auth()->check())
+                                                    <a href="{{route('check.out')}}" class="btn btn-sm cart-button theme-bg-color
                                                     text-white">Checkout</a>
+                                                    @else
+                                                    <a href="{{route('login.page')}}" class="btn btn-sm cart-button theme-bg-color
+                                                    text-white">Checkout</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -252,13 +239,35 @@
 
                                         <div class="onhover-div onhover-div-login">
                                             <ul class="user-box-name">
+                                             
                                                 <li class="product-box-contain">
                                                     <i></i>
-                                                    <a href="login.html">Log In</a>
+                                                    @if(auth()->check())
+                                                        {{-- User is logged in --}}
+                                                        <a href="{{ route('user.dashboard', ['id' => auth()->user()->id, 'name' => auth()->user()->name]) }}">Profile</a>
+                                                    @endif
+
+                                                   
+
+                                                </li>
+                                               
+                                                <li class="product-box-contain">
+                                                    <i></i>
+                                                    @if(auth()->check())
+                                                        {{-- User is logged in --}}
+                                                        <a href="{{ route('user.logout') }}">Log Out</a>
+                                                    @else
+                                                        {{-- User is a guest --}}
+                                                        <a href="{{route('login.page')}}">Log In</a>
+                                                    @endif
+                                                    
                                                 </li>
 
                                                 <li class="product-box-contain">
-                                                    <a href="sign-up.html">Register</a>
+                                                    <!-- <a href="sign-up.html">Register</a> -->
+                                                    @if(auth()->check()==false)
+                                                        <a href="{{route('user.signup')}}">Register</a>
+                                                    @endif
                                                 </li>
 
                                                 <li class="product-box-contain">

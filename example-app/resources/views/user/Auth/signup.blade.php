@@ -84,23 +84,24 @@
                         </div>
 
                         <div class="input-box">
-                            <form class="row g-4">
+                            <form action="{{route('user.submit')}}"  method="post" class="row g-4">
+                                @csrf
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" class="form-control" id="fullname" placeholder="Full Name">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Full Name">
                                         <label for="fullname">Full Name</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Email Address">
                                         <label for="email">Email Address</label>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="password" class="form-control" id="password"
+                                        <input type="password" class="form-control" id="password" name="password"
                                             placeholder="Password">
                                         <label for="password">Password</label>
                                     </div>

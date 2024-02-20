@@ -117,44 +117,12 @@
             //   update insert product 
             $(document).on('submit','#Updateproductform',function(event){
                 event.preventDefault();
-                // let id=$('#id').val();
-                // let pname=$('#pname').val();
-                // let cat_id=$('#cat_id').val();
-                // let subcat_id=$('#subcat_id').val();
-                // let tags=$('#tags').val();
-                // let exchange=$('#exchange').val();
-                // let refund=$('#refund').val();
-                // let pimage=$('#pimage').val();
-                // let ptumbnail=$('#ptumbnail').val();
-                // let pvideo=$('#pvideo').val();
-                // let shipweight=$('#shipweight').val();
-                // let price=$('#price').val();
-                // let stock=$('#stock').val();
-                // let quantity=$('#quantity').val();
-                // let pagetitle=$('#pagetitle').val();
-                // let metadesc=$('#metadesc').val();
-                // let meta_url=$('#meta_url').val();
+                
                 
             //    alert(pname);
                 
                 let formData = new FormData(this);
-                // formData.append('id',id);
-                // formData.append('pname',pname);
-                // formData.append('cat_id',cat_id);
-                // formData.append('subcat_id',subcat_id);
-                // formData.append('tags',tags);
-                // formData.append('exchange',exchange);
-                // formData.append('refund',refund);
-                // formData.append('pimage',pimage);
-                // formData.append('ptumbnail',ptumbnail);
-                // formData.append('pvideo',pvideo);
-                // formData.append('shipweight',shipweight);
-                // formData.append('price',price);
-                // formData.append('stock',stock);
-                // formData.append('quantity',quantity);
-                // formData.append('pagetitle',pagetitle);
-                // formData.append('metadesc',metadesc);
-                // formData.append('meta_url',meta_url);
+                
                 $.ajax({
                     url:"{{route('update.product')}}",
                     method:'post',

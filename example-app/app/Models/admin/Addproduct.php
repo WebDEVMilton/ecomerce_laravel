@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\admin\Addsubcatgeory;
 use App\Models\admin\Addcategory;
+use App\Models\admin\Addproduct;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Addproduct extends Model
@@ -19,6 +20,10 @@ class Addproduct extends Model
     }
     public function category(){
         return $this->belongsTo(Addcategory::class,'cat_id');
+    }
+
+    public function order(){
+        return $this->hasone(Order::class,'product_id');
     }
 
 }
